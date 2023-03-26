@@ -1,0 +1,864 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="icon" href="./assets/images/indelible_tab_icon.png" />
+  <link rel="apple-touch-icon" href="./assets/images/indelible_tab_icon.png" />
+  <title>Indelible NFT</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!-- ====== Page 1 - Paintbrush -->
+
+  <script type="text/javascript">
+    document.documentElement.className = 'js';
+  </script>
+
+  <script>
+    var et_site_url = 'https://indelible.live';
+    var et_post_id = '97';
+    function et_core_page_resource_fallback(a, b) {
+      "undefined" === typeof b && (b = a.sheet.cssRules && 0 === a.sheet.cssRules.length); b && (a.onerror = null, a.onload = null, a.href ? a.href = et_site_url + "/?et_core_page_resource=" + a.id + et_post_id : a.src && (a.src = et_site_url + "/?et_core_page_resource=" + a.id + et_post_id))
+    }
+  </script>
+  <script>
+    function setREVStartSize(e) {
+      window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+      window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+      try {
+        var pw = document.getElementById(e.c).parentNode.offsetWidth,
+          newh;
+        pw = pw === 0 || isNaN(pw) || (e.l == "fullwidth" || e.layout == "fullwidth") ? window.RSIW : pw;
+        e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+        e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+        e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+        e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+        e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+        e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+        e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+        if (e.layout === "fullscreen" || e.l === "fullscreen")
+          newh = Math.max(e.mh, window.RSIH);
+        else {
+          e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+          for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+          e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+          e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+          for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+          var nl = new Array(e.rl.length),
+            ix = 0,
+            sl;
+          e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+          e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+          e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+          e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+          for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+          sl = nl[0];
+          for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+          var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+          newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+        }
+        var el = document.getElementById(e.c);
+        if (el !== null && el) el.style.height = newh + "px";
+        el = document.getElementById(e.c + "_wrapper");
+        if (el !== null && el) {
+          el.style.height = newh + "px";
+          el.style.display = "block";
+        }
+      } catch (e) {
+        console.log("Failure at Presize of Slider:" + e)
+      }
+    };
+  </script>
+  <link rel="stylesheet" id="et-core-unified-cached-inline-styles"
+    href="assets/paintbrush/et-core-unified-16704058431038.min.css" onerror="et_core_page_resource_fallback(this, true)"
+    onload="et_core_page_resource_fallback(this)" />
+
+  <!-- ====== Page 1 - Paintbrush | The END -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- ===== Preloader ===== -->
+  
+  <div class="preloader-plus"> 			 
+    <div class="preloader-content">   	 					
+      <img class="preloader-custom-img" src="assets/images/loader-2.png"/>
+        <div class="prog-bar-wrapper middle">
+          <div class="prog-bar-bg"></div>
+          <div class="prog-bar" ></div>
+        </div> 
+    </div>
+  </div>
+  
+  <div class="enter-screen"> 			 
+    <div class="preloader-content">   	 					
+      <button class="enterButton navItem" id="home">Enter</button>
+    </div>
+  </div>
+  <!-- ===== Preloader ===== -->
+  <audio id="mainHomeAudio" loop>
+    <source src="./assets/audio/main.mp3" />
+  </audio>
+
+  <div class="mute-icon-wrapper">
+    <svg id="unmute_btn" class="unmute-icon" style="width: 2.5em; height: 2.5em; vertical-align: middle; fill: currentColor; overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M515.756 621.32v179.391L441.1 732.859 318.837 621.685a37.46 37.46 0 0 0-25.169-9.714l-113.981 0.036-0.369-239.826h87.299l-74.687-74.687h-12.612c-41.107 0.164-74.341 33.553-74.318 74.651v239.862c0 41.171 33.348 74.651 74.318 74.651h99.929L441.1 833.808l59.382 53.965c14.977 13.596 29.165 17.387 40.332 17.387 8.621 0 15.496-2.26 19.455-4.028 9.113-4.028 30.245-17.241 30.245-52.981V696.08l-74.758-74.76zM846.634 540.729c0 72.792-18.663 125.298-39.116 161.239l52.156 52.161c29.753-45.873 58.512-115.439 58.512-213.436 0-199.056-123.02-281.288-128.283-284.678a35.316 35.316 0 0 0-26.859-4.848 35.397 35.397 0 0 0-22.289 15.747c-10.689 16.749-6.087 38.984 10.384 50.119 3.845 2.605 95.495 66.011 95.495 223.696z"  /><path d="M647.697 428.133c2.278 1.185 55.865 29.416 55.865 109.935 0 20.759-3.012 38-7.463 52.47l54.616 54.621c13.733-26.828 24.363-61.51 24.363-107.055 0-127.905-92.616-173.577-96.534-175.472v0.036a35.383 35.383 0 0 0-27.128-1.294 35.349 35.349 0 0 0-20.039 18.316c-8.475 17.916-1.267 39.312 16.32 48.443zM417.558 312.002l23.511-21.378 74.687-67.889V410.2l74.76 74.76V175.313c0-24.695-11.35-44.415-30.359-52.853-9.145-4.028-33.275-10.789-59.747 13.304l-59.309 53.91-76.405 69.456 52.862 52.872zM829.266 866.596c-9.55 0-19.1-3.645-26.39-10.935l-634.53-634.53c-14.58-14.58-14.58-38.2 0-52.78 14.58-14.58 38.2-14.58 52.78 0l634.53 634.529c14.58 14.58 14.58 38.2 0 52.78-7.29 7.291-16.84 10.936-26.39 10.936z"  /></svg>
+    <svg id="mute_btn" class="mute-icon hide" style="width: 2.5em; height: 2.5em; vertical-align: middle; fill: currentColor; overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M789.904 256.006a35.337 35.337 0 0 0-26.856-4.837 35.348 35.348 0 0 0-22.293 15.745c-10.69 16.753-6.085 38.982 10.384 50.116 3.845 2.61 95.493 66.021 95.493 223.695 0 158.078-87.909 221.529-91.385 223.917-16.537 11.266-20.958 33.723-9.931 50.414a35.583 35.583 0 0 0 22.707 15.351 35.58 35.58 0 0 0 26.885-5.339c5.043-3.363 123.277-85.635 123.277-284.382 0-199.051-123.017-281.284-128.281-284.68M678.54 362.663a35.357 35.357 0 0 0-27.125-1.288 35.378 35.378 0 0 0-20.041 18.319c-8.474 17.905-1.265 39.308 16.321 48.436 2.279 1.192 55.866 29.426 55.866 109.94 0 85.97-50.116 114.463-51.758 115.397-17.756 9.141-24.891 30.84-16.023 48.732a35.783 35.783 0 0 0 48.025 16.286c3.739-1.943 91.272-47.911 91.272-180.375 0-127.906-92.615-173.577-96.536-175.481M515.796 800.753l-74.695-67.89-122.264-111.176a37.404 37.404 0 0 0-25.17-9.71l-113.979 0.034-0.37-239.827h150.05a37.423 37.423 0 0 0 32.001-9.072l79.698-72.488 74.688-67.89v578.019h0.041z m44.361-678.294c-9.147-4.028-33.273-10.792-59.747 13.295l-59.31 53.928-118.604 107.814H179.318c-41.107 0.165-74.341 33.546-74.318 74.653v239.862c0 41.16 33.346 74.655 74.318 74.655h99.932L441.1 833.803l59.383 53.963c14.976 13.597 29.165 17.403 40.334 17.403 8.621 0 15.494-2.279 19.454-4.034 9.112-4.029 30.246-17.25 30.246-52.99v-672.84c0-24.685-11.35-44.406-30.36-52.846z m0 0"  /></svg>
+  </div>
+
+  <!-- ====== Page Home 1 - Paintbrush -->
+  <div id="HomePageWithCanvas" class="active">
+    <article>
+      <div class="et_pb_module et_pb_fullwidth_code et_pb_fullwidth_code_0">
+        <div class="et_pb_code_inner">
+
+          <!-- START Slider 1 REVOLUTION SLIDER 6.5.24 -->
+          <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery"
+            style="visibility:hidden;background:transparent;padding:0;">
+            <rs-module id="rev_slider_1_1" data-version="6.5.24">
+              <rs-slides>
+                <rs-slide style="position: absolute;" data-key="rs-1" data-title="Slide" data-in="o:0;"
+                  data-out="a:false;"
+                  data-revaddonpaintbrush='{"size":80,"origsize":80,"strength":0,"fadetime":5000,"image":"assets\/paintbrush\/media\/ONLY-TATTOO.png","responsive":true,"disappear":true}'>
+                  <img src="" alt="" title="" width="720" height="406" class="rev-slidebg tp-rs-img rs-lazyload"
+                    data-lazyload="" data-no-retina>
+              </rs-slides>
+            </rs-module>
+            <script>
+              setREVStartSize({ c: 'rev_slider_1_1', rl: [1240, 1024, 778, 480], el: [900], gw: [1240], gh: [900], type: 'standard', justify: '', layout: 'fullscreen', offsetContainer: '', offset: '', mh: "0" }); if (window.RS_MODULES !== undefined && window.RS_MODULES.modules !== undefined && window.RS_MODULES.modules["revslider11"] !== undefined) { window.RS_MODULES.modules["revslider11"].once = false; window.revapi1 = undefined; if (window.RS_MODULES.checkMinimal !== undefined) window.RS_MODULES.checkMinimal() }
+            </script>
+          </rs-module-wrap>
+          <!-- END REVOLUTION SLIDER -->
+
+        </div>
+      </div> <!-- .et_pb_fullwidth_code -->
+      <div class="et_pb_module et_pb_fullwidth_code et_pb_fullwidth_code_1">
+        <div class="et_pb_code_inner">
+          <!-- START mobile REVOLUTION SLIDER 6.5.24 -->
+          <rs-module-wrap id="rev_slider_2_2_wrapper" data-source="gallery"
+            style="visibility:hidden;background:transparent;padding:0;">
+            <rs-module id="rev_slider_2_2" data-version="6.5.24">
+              <rs-slides>
+                <rs-slide style="position: absolute;" data-key="rs-2" data-title="Slide" data-in="o:0;"
+                  data-out="a:false;"
+                  data-revaddonpaintbrush='{"size":80,"origsize":80,"strength":0,"fadetime":4000,"image":"assets\/paintbrush\/media\/tatoo-only-mob.png","responsive":true,"disappear":true}'>
+                  <img src="" alt="" title="" width="480" height="852" class="rev-slidebg tp-rs-img rs-lazyload"
+                    data-lazyload="" data-no-retina>
+                </rs-slide>
+              </rs-slides>
+            </rs-module>
+            <script>
+              setREVStartSize({ c: 'rev_slider_2_2', rl: [1240, 1240, 778, 480], el: [900, 900, 960, 720], gw: [1240, 1240, 778, 480], gh: [900, 900, 960, 720], type: 'standard', justify: '', layout: 'fullscreen', offsetContainer: '', offset: '', mh: "0" }); if (window.RS_MODULES !== undefined && window.RS_MODULES.modules !== undefined && window.RS_MODULES.modules["revslider22"] !== undefined) { window.RS_MODULES.modules["revslider22"].once = false; window.revapi2 = undefined; if (window.RS_MODULES.checkMinimal !== undefined) window.RS_MODULES.checkMinimal() }
+            </script>
+          </rs-module-wrap>
+          <!-- END REVOLUTION SLIDER -->
+        </div>
+      </div>
+      <!-- </div> -->
+    </article>
+  </div>
+  <!-- ====== Page Home s1 - Paintbrush | The END -->
+
+  <!-- ====== Page Roadmap - Paintbrush -->
+  <div id="RoadMapPageWithCanvas">
+    <article>
+      <div class="et_pb_module et_pb_fullwidth_code et_pb_fullwidth_code_0">
+        <div class="et_pb_code_inner">
+
+          <!-- START Slider 1 REVOLUTION SLIDER 6.5.24 -->
+          <rs-module-wrap id="rev_slider_6_1_wrapper" data-source="gallery"
+            style="visibility:hidden;background:transparent;padding:0;">
+            <rs-module id="rev_slider_6_1" data-version="6.5.24">
+              <rs-slides>
+                <rs-slide style="position: absolute;" data-key="rs-1" data-title="Slide" data-in="o:0;"
+                  data-out="a:false;"
+                  data-revaddonpaintbrush='{"size":80,"origsize":80,"strength":0,"fadetime":5000,"image":"assets\/roadmap\/tat-only-2.png","responsive":true}'>
+                  <img src="" alt="" title="" width="720" height="406" class="rev-slidebg tp-rs-img rs-lazyload"
+                    data-lazyload="" data-no-retina>
+              </rs-slides>
+            </rs-module>
+            <script>
+              setREVStartSize({ c: 'rev_slider_6_1', rl: [1240, 1024, 778, 480], el: [900], gw: [1240], gh: [900], type: 'standard', justify: '', layout: 'fullscreen', offsetContainer: '', offset: '', mh: "0" }); if (window.RS_MODULES !== undefined && window.RS_MODULES.modules !== undefined && window.RS_MODULES.modules["revslider61"] !== undefined) { window.RS_MODULES.modules["revslider61"].once = false; window.revapi3 = undefined; if (window.RS_MODULES.checkMinimal !== undefined) window.RS_MODULES.checkMinimal() }
+            </script>
+          </rs-module-wrap>
+          <!-- END REVOLUTION SLIDER -->
+
+        </div>
+      </div>
+      <!-- .et_pb_fullwidth_code -->
+      <div class="et_pb_module et_pb_fullwidth_code et_pb_fullwidth_code_1">
+        <div class="et_pb_code_inner">
+          <!-- START mobile REVOLUTION SLIDER 6.5.24 -->
+          <rs-module-wrap id="rev_slider_6_2_wrapper" data-source="gallery"
+            style="visibility:hidden;background:transparent;padding:0;">
+            <rs-module id="rev_slider_6_2" data-version="6.5.24">
+              <rs-slides>
+                <rs-slide style="position: absolute;" data-key="rs-2" data-title="Slide" data-in="o:0;"
+                  data-out="a:false;"
+                  data-revaddonpaintbrush='{"size":80,"origsize":80,"strength":0,"fadetime":4000,"image":"assets\/roadmap\/tat-only-m-3.png","responsive":true}'>
+                  <img src="" alt="" title="" width="480" height="852" class="rev-slidebg tp-rs-img rs-lazyload"
+                    data-lazyload="" data-no-retina>
+                </rs-slide>
+              </rs-slides>
+            </rs-module>
+            <script>
+              setREVStartSize({ c: 'rev_slider_6_2', rl: [1240, 1240, 778, 480], el: [900, 900, 960, 720], gw: [1240, 1240, 778, 480], gh: [900, 900, 960, 720], type: 'standard', justify: '', layout: 'fullscreen', offsetContainer: '', offset: '', mh: "0" }); if (window.RS_MODULES !== undefined && window.RS_MODULES.modules !== undefined && window.RS_MODULES.modules["revslider62"] !== undefined) { window.RS_MODULES.modules["revslider62"].once = false; window.revapi4 = undefined; if (window.RS_MODULES.checkMinimal !== undefined) window.RS_MODULES.checkMinimal() }
+            </script>
+          </rs-module-wrap>
+          <!-- END REVOLUTION SLIDER -->
+        </div>
+      </div>
+      <!-- </div> already coment -->
+    </article>
+  </div>
+  <!-- ====== Page Roadmap - Paintbrush | The END -->
+
+  <video class="thirdVideo hideThirdVideo" autoplay muted loop id="videoThree" playsinline>
+    <source id="videoSource" src="./assets/videos/about_02.mp4" type="video/mp4" />
+  </video>
+  <!-- =============================== VideoOne/ VideoTwo ================================= -->
+  <div id="divVideo">
+      <video data-video-name="home" class="activeVideo homepageVideo theVideo" autoplay muted loop id="videoOne" playsinline>
+        <source id="videoSource" src="./assets/videos/landing_page_01.mp4" type="video/mp4" />
+      </video>
+      <video data-video-name="secondVideo" class="inactiveVideo theVideo" autoplay muted loop id="videoTwo" playsinline>
+        <source id="videoSourceTwo" src="" type="video/mp4" />
+      </video>
+  </div>
+  <!-- =================================================================== -->
+  <div class="header_sec">
+    <nav class="navbar">
+      <div class="home">
+        <a class="navItem" id="home" href="#"><img src="./assets/images/logo_color_two.png" alt="" width="150px"
+            height="70px" /></a>
+      </div>
+      <ul class="">
+        <!-- ========================= NavItem Mobile ========================= -->
+        <img class="menuIcon" src="./assets/icons/menuIcon.svg" alt="" />
+        <div class="responsiveMenu">
+          <ul class="mobileNavLinks">
+            <li class="nav-links-mobile aboutNav">
+              <a class="about navItem" id="about" href="#">ABOUT</a>
+              <div class="crossImage">
+                <img class="closeIcon" src="./assets/icons/CrossIcon.svg" alt="" />
+              </div>
+            </li>
+            <!--
+            <li class="nav-links-mobiles">
+              <a class="genesis navItem" id="genesis" href="#">GENESIS DROP</a>
+            </li>
+            -->
+            <li class="nav-links-mobile">
+              <a class="roadMap navItem" id="roadMap" href="#">ROAD MAP</a>
+            </li>
+            <li class="nav-links-mobile">
+              <a class="shop navItem" id="shop" href="#">MEMBERSHIP</a>
+            </li>
+            <li class="nav-links-mobile">
+              <a class="buyNow navItem" id="buyNow" href="#">DROP</a>
+            </li>
+            <li class="nav-links-mobile socialIcons-mobile">
+              <a href="https://twitter.com/indeliblenft"><img src="./assets/icons/twitter.png" alt=""
+                  width="20px" /></a>
+              <a href="https://www.instagram.com/nftindelible/"><img src="./assets/icons/instagram.png" alt=""
+                  width="20px" /></a>
+              <a href="https://tr.ee/pbluj6rwXB"><img src="./assets/icons/discord.png" alt=""
+                  width="20px" /></a>
+            </li>
+          </ul>
+        </div>
+        <!-- ================ NaviItem Desktop ================= -->
+        <li class="nav-links">
+          <a class="about navItem" id="about" href="#">ABOUT</a>
+        </li>
+        <!--
+        <li class="nav-links">
+          <a class="genesis navItem" id="genesis" href="#">GENESIS DROP</a>
+        </li>
+        -->
+        <li class="nav-links">
+          <a class="roadMap navItem" id="roadMap" href="#">ROAD MAP</a>
+        </li>
+        <li class="nav-links">
+          <a class="shop navItem" id="shop" href="#">MEMBERSHIP</a>
+        </li>
+        <li class="nav-links">
+          <a class="buyNow navItem" id="buyNow" href="#">DROP</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="socialIcons">
+      <a href="https://twitter.com/indeliblenft"><img src="./assets/icons/twitter.png" alt="" width="20px" /></a>
+      <a href="https://www.instagram.com/nftindelible/"><img src="./assets/icons/instagram.png" alt="" width="20px" /></a>
+      <a href="https://tr.ee/pbluj6rwXB"><img src="./assets/icons/discord.png" alt="" width="20px" /></a>
+    </div>
+  </div>
+
+  <div class="pageSection">
+    <div class="videoSegments">
+      <div id="mainHomeText">
+        <div class="homeTextWithBtn">
+          <h1 class="homeText">
+            THE IRL LUXURY BRAND BORN FROM TATTOO CULTURE & BUILT IN WEB3
+          </h1>
+        </div>
+        <div class="wrap">
+          <!--<button class="mintButton">MINT NOW</button>-->
+        </div>
+        <audio id="homeAudio" loop>
+          <source src="./assets/audio/tattoo-machine-sfx.mp3" />
+        </audio>
+      </div>
+      <!-- =============== About ================ -->
+      <div id="aboutText" class="inactiveSegment">
+        <div class="aboutpageText">
+          <span id="redTitleAbout" class="redText redTitleAnimate">IN-DEL-I-BLE
+          </span>
+          <span id="whiteSubText" class="subText subTextHide">/IN'DELǝB(ǝ)L/ (OF NEEDLE OR BLOCKCHAIN) MAKING MARKS THAT
+            CANNOT
+            BE REMOVED. </span><br />
+          <p id="aboutParagraph" class="animateParaSection">
+            INDELIBLE IS THE FIRST LUXURY FASHION BRAND INSPIRED BY TATTOO CULTURE. WE CREATE LIMITED EDITION PRODUCTS BY INFUSING FINE-GOODS WITH THE ESSENCE OF TRADITIONAL TATTOO ART FORM. WHETHER COLLABORATING WITH THE WORLD’S TOP BRANDS OR DROPPING AN EXCLUSIVE INDELIBLE PRODUCT; OUR IRL ITEMS ARE ONLY ACCESSIBLE THROUGH OUR DIGITAL MEMBERSHIP. TO GAIN ACCESS SIMPLY PURCHASE ONE OF OUR DIGITAL COLLECTIBLES (INDELIBLE TATTOO MACHINE NFTS). <br> MEMBERSHIP INCLUDES EXCLUSIVE ACCESS TO PRODUCT DROPS, FREE GIVEAWAYS, IN-PERSON EXPERIENCES, EVENTS, TATTOO APPOINTMENTS WITH NOTORIOUSLY SOUGHT AFTER ARTISTS AND MORE….
+          </p>
+        </div>
+        <audio id="audio">
+          <source src="./assets/audio/tattoo-machine-spark-sfx.mp3" />
+        </audio>
+        <div class="aboutHoverEffect"></div>
+      </div>
+      <!-- ========================== GenesisDrop =============================== -->
+      <div id="genesisDrop" class="inactiveSegment genesisDrop">
+        <h1 id="genesisTitle" class="redTitle redTitleAnimate">
+          GENESIS DROP
+        </h1>
+        <p id="genesisParagraph" class="animateParaSection">
+          MIKE AMOIA, THE FOUNDER OF INDELIBLE, IS THE HOLDER OF THE WORLD
+          RECORD FOR MOST INSECT TATTOOS ON A HUMAN'S BODY. AMOIA EFFECTIVELY
+          DOXXING HIMSELF AS THE FOUNDER OF INDELIBLE IN ORDER TO INTERPRET
+          HIS STORY THROUGH WEB3, WE ARE MIKE RUBENDALL, BJ BETTS, AND MATT
+          SKINNY. EACH OF OUR GENESIS DROPS WILL BE GIVEN ANCIENT POWERS OF
+          THE LEGENDARY MYTHICAL SYMBOLISM OF EACH BUG, EFFECTIVELY PROVIDNG
+          THE OWNER WITH A REWARD.
+        </p>
+      </div>
+
+      <!-- ================================= RoadMap Mobile ========================================= -->
+
+      <div id="roadMapSegment" class="inactiveSegment">
+        <div class="mobileTattoodetails detailsBottom">
+          <div class="headerMobile">
+            <h1 class="redTitle redTitleMonitization">BRAIN</h1>
+            <p class="animateMonitazation">
+              Indelible is not just a brand, it is a movement. We understand that the future lies in more than just a luxury fashion brand tied to digital membership collectibles. Our plan is to have roots in everything from events, experiences, management, and gaming.
+            </p>
+          </div>
+          <div class="handMobile">
+            <h1 class="redTitle redTitleNeedleDropText">
+              ARM
+            </h1>
+            <p class="animateNeedlepara">
+              Partnerships are a crucial element to us. Whether it’s needle to skin or thread by using the elements of original tattoo art, our roster of top-tier artists partner with the world’s leading luxury brands to reinvent the best and latest in fashion, jewelry and home goods through our creative lens.
+            </p>
+          </div>
+          <div class="chestMobile">
+            <h1 class="redTitle redTitleMission">HEART</h1>
+            <p class="animateMissionValues">
+              The values that define tattoo culture are at the heart of Indelible. As we grow, the value of our memberships grow. We will unlock greater access to rewards, perks, and giveaways incentivizing holders to remain part of our exclusive community.
+            </p>
+          </div>
+          <div class="stomachMobile">
+            <h1 class="redTitle redTitlePartnership">STOMACH</h1>
+            <p class="animateParaPartnership">
+              Our brand’s core lies in our community of tattoo artists. As we expand, we will explore the styles specific to different regions, cultures and techniques of tattoo art; building a unique stylistic focus that highlights the many different facets of tattoo culture. This will be represented throughout our product drops and weaved into the foundation of the Indelible brand.
+            </p>
+          </div>
+          <div class="legMobile">
+            <h1 class="redTitle redTitleTeamComunity legWidths">
+              LEG
+            </h1>
+            <p class="animateParateamcomunity">
+              Through heightened awareness of Indelible as a premium and collectible brand, our plan is to open a flagship store offering access to our exclusive product line to the general public. Key holders will have the opportunity to purchase limited edition items only available through membership. 
+            </p>
+          </div>
+        </div>
+        <!-- ===================================== RoadMap Desktop ==================================== -->
+
+        <div id="roadMapTitle" class="aboutRoadMap">
+          <p>PURCHASE A TATTOOED NFT AND UNLOCK MEMBERSHIP REWARDS</p>
+        </div>
+        <div class="headSection">
+          <div class="textMonitization">
+            <h1 class="redTitle redTitleMonitization">BRAIN</h1>
+            <p class="animateMonitazation">
+              Indelible is not just a brand, it is a movement. We understand that the future lies in more than just a luxury fashion brand tied to digital membership collectibles. Our plan is to have roots in everything from events, experiences, management, and gaming.
+            </p>
+          </div>
+          <img class="headLine" src="./assets/images/roadMap_assests/alt_linesz.png" alt="" width="50px" />
+          <div id="hoverHead"></div>
+          <!-- <img class="headImage2" src="./assets/images/roadMap_assests/head.png" alt="" /> -->
+        </div>
+        <div class="handSection">
+          <div class="needleDropText">
+            <h1 class="redTitle redTitleNeedleDropText">
+              ARM
+            </h1>
+            <p class="animateNeedlepara">
+              Partnerships are a crucial element to us. Whether it’s needle to skin or thread by using the elements of original tattoo art, our roster of top-tier artists partner with the world’s leading luxury brands to reinvent the best and latest in fashion, jewelry and home goods through our creative lens.
+            </p>
+          </div>
+          <img class="lineImg handLine" src="./assets/images/roadMap_assests/alt_linesz.png" alt="" width="60px" />
+          <div id="hoverHand"></div>
+          <!-- <img class="handImage2" src="./assets/images/roadMap_assests/hand.png" alt="" /> -->
+        </div>
+        <div class="chestSection">
+          <div class="missionValueText">
+            <h1 class="redTitle redTitleMission">HEART</h1>
+            <p class="animateMissionValues">
+              The values that define tattoo culture are at the heart of Indelible. As we grow, the value of our memberships grow. We will unlock greater access to rewards, perks, and giveaways incentivizing holders to remain part of our exclusive community.
+            </p>
+          </div>
+          <!-- <img class="chestImage2" src="./assets/images/roadMap_assests/chest.png" alt="" /> -->
+          <div id="hoverChest"></div>
+          <img class="secondLineImg chestLine" src="./assets/images/roadMap_assests/alt_linesz.png" alt="" width="" />
+        </div>
+        <div class="stomachSection">
+          <div class="partnershipText">
+            <h1 class="redTitle redTitlePartnership">STOMACH</h1>
+            <p class="animateParaPartnership">
+              Our brand’s core lies in our community of tattoo artists. As we expand, we will explore the styles specific to different regions, cultures and techniques of tattoo art; building a unique stylistic focus that highlights the many different facets of tattoo culture. This will be represented throughout our product drops and weaved into the foundation of the Indelible brand.
+            </p>
+          </div>
+          <!-- <img class="stomachImage2" src="./assets/images/roadMap_assests/stomach.png" alt="" /> -->
+          <div id="hoverStomach"></div>
+          <img class="thirdLineImg stomachLine" src="./assets/images/roadMap_assests/alt_linesz.png" alt="" width="" />
+        </div>
+        <div class="legSection">
+          <div class="teamAndCommunityText">
+            <h1 class="redTitle redTitleTeamComunity">LEG</h1>
+            <p class="animateParateamcomunity">
+              Through heightened awareness of Indelible as a premium and collectible brand, our plan is to open a flagship store offering access to our exclusive product line to the general public. Key holders will have the opportunity to purchase limited edition items only available through membership. 
+            </p>
+          </div>
+          <!-- <img class="legImage2" src="./assets/images/roadMap_assests/leg.png" alt="" /> -->
+          <div id="hoverLeg"></div>
+          <img class="thirdImg legLine" src="./assets/images/roadMap_assests/alt_linesz.png" alt="" width="100px" />
+        </div>
+      </div>
+      <div id="buyNowSegment" class="buyNow inactiveSegment">
+        <div>
+          <div id="buyNowShows" class="imageLayers">
+            <h2 class="dropTitle">WEB 2: PARIS LAUNDRY X INDELIBLE</h2>
+            <p class="dropText">INDELIBLE DESIGNED A COLLECTION OF CLOTHES IN COLLABORATION WITH FASHION LABEL PARIS LAUNDRY. OUR CAPSULE DROP INCLUDES CUSTOM STYLES ALL WITH AN INDELIBLE EDGE BORN FROM TATTOO INSPIRED DESIGNS.</p>
+            <h2 class="dropTitle">WEB 3: AZUKI X INDELIBLE</h2>
+            <p class="dropText">INDELIBLE CREATED A DERIVATIVE COLLECTION IN COLLABORATION WITH LICENSED AZUKI HOLDERS. OUR 1000 ANIMATED AZUKI NTFS WERE TATTOOED BY: BJ BETTS, MATT “SKINNY”, AND MIKE RUBENDALL.</p>
+            <h2 class="coming-soon">DROP COMING SOON</h2>
+            <!--
+            <form>
+              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">
+                -
+              </div>
+              <div class="eth">
+                <label>0.345 ETH</label>
+                <input type="number" id="number" value="0" disabled />
+              </div>
+
+              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">
+                +
+              </div>
+            </form>
+            <div class="buttonsWrap">
+              <div class="wrapConnect">
+                <button class="connectButton">CONNECT WALLET</button>
+              </div>
+              <div class="wrapPay">
+                <button class="payButton">PAY WITH CREDIT CARD</button>
+              </div>
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+
+      <div id="shopSegment" class="shop inactiveSegment">
+        <h1 id="shopTitle" class="shopRedTitle redTitleAnimate">
+          MEMBERSHIP
+          <img class="plusIcon" src="./assets/images/plus.png" />
+        </h1>
+        <div id="shopParagraph" class="animateParaSection">
+          <ul id="shopParagraphList">
+            <li>- EACH DIGITAL TATTOO MACHINE IS A MEMBERSHIP KEY THAT GRANTS HOLDERS ACCESS TO OUR LINE OF PRODUCTS.</li>
+            <li>- SIMPLY PURCHASE OUR DIGITAL COLLECTIBLE VIA CREDIT / DEBIT CARD AND UNLOCK OUR REAL PRODUCTS SUCH AS CLOTHING, JEWELRY, ART AND MORE.</li>
+            <li>- ALL INDELIBLE DROPS ARE DESIGNED BY SOME OF THE BIGGEST TATTOO ARTISTS AND DESIGNERS IN THE WORLD.</li>
+            <li>- BY HOLDING THIS MEMBERSHIP YOU WILL CONTINUE GETTING ACCESS TO FREE PRODUCTS THROUGHOUT THE YEAR.</li>
+          </ul>
+          <p><strong>SEE REWARDS FOR OUR GENESIS DROP (MARK 1) BELOW.</strong></p>
+        </div>
+        <div id="shopDropsWrapper" class="animateSection">
+          <div class="shopDrop">
+            <!--<img class="shopDropImg" src="./assets/images/shop/chalk.png" alt="" />-->
+            <video class="shopDropVideo" preload="none" muted loop playsinline poster="./assets/images/shop/chalk.png">
+              <source src="./assets/images/shop/chalk.mp4" type='video/mp4' />
+              <!--<source src="./assets/images/shop/chalk.webm" type="video/webm">-->
+            </video>
+            <h2 class="shopDropTitle">WHITE MEMBERSHIP</h2>
+            <ul class="shopDropPara">
+              <li>ACCESS TO OUR MARK 1 INDELIBLE GOODS DROP</li>
+              <li>ALL ACCESS PASS TO EVENTS</li>
+            </ul>
+          </div>
+          <div class="shopDrop">
+            <!--<img class="shopDropImg" src="./assets/images/shop/chrome.png" alt="" />-->
+            <video class="shopDropVideo" preload="none" muted loop playsinline poster="./assets/images/shop/chrome.png">
+              <source src="./assets/images/shop/chrome.mp4" type='video/mp4' />
+              <!--<source src="./assets/images/shop/chrome.webm" type="video/webm">-->
+            </video>
+            <h2 class="shopDropTitle">SILVER MEMBERSHIP</h2>
+            <ul class="shopDropPara">
+              <li>INDELIBLE CHROME CHAIN</li>
+              <li>INDELIBLE TATTOOED AZUKI NFT</li>
+              <li>ACCESS TO OUR MARK 1 INDELIBLE GOODS DROP</li>
+              <li>ALL ACCESS PASS TO EVENTS</li>
+            </ul>
+          </div>
+          <div class="shopDrop">
+            <!--<img class="shopDropImg" src="./assets/images/shop/azuki.png" alt="" />-->
+            <video class="shopDropVideo" preload="none" muted loop playsinline poster="./assets/images/shop/azuki.png">
+              <source src="./assets/images/shop/azuki.mp4" type='video/mp4' />
+              <!--<source src="./assets/images/shop/azuki.webm" type="video/webm">-->
+            </video>
+            <h2 class="shopDropTitle">RED MEMBERSHIP</h2>
+            <ul class="shopDropPara">
+              <li>INDELIBLE TATTOOED AZUKI NFT</li>
+              <li>ACCESS TO OUR MARK 1 INDELIBLE GOODS DROP</li>
+              <li>ALL ACCESS PASS TO EVENTS</li>
+            </ul>
+          </div>
+          <div class="shopDrop">
+            <!--<img class="shopDropImg" src="./assets/images/shop/bandana.png" alt="" />-->
+            <video class="shopDropVideo" preload="none" muted loop playsinline poster="./assets/images/shop/bandana.png">
+              <source src="./assets/images/shop/bandana.mp4" type='video/mp4' />
+              <!--<source src="./assets/images/shop/bandana.webm" type='video/webm' />-->
+            </video>
+            <h2 class="shopDropTitle">BLACK MEMBERSHIP</h2>
+            <ul class="shopDropPara">
+              <li>ACCESS TO A FREE APPOINTMENT FROM A WORLD RENOWNED INDELIBLE TATTOO ARTIST</li>
+              <li>ACCESS TO OUR MARK 1 INDELIBLE GOODS DROP</li>
+              <li>ALL ACCESS PASS TO EVENTS</li>
+            </ul>
+          </div>
+        </div>
+        <p id="shopBottomParagraph" class="animateParaSection">
+          ***THERE ARE MORE RARITY MACHINES (TO BE ANNOUNCED) THAT WILL UNLOCK DIFFERENT REWARD
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="scripts.js"></script>
+  <script src="roadmap.js"></script>
+  <script src="videoLoop.js"></script>
+  <script src="responsiveness.js"></script>
+  <script src="buyNowInputs.js"></script>
+
+  <!-- ====== Paintbrush -->
+
+  <script>
+    /*
+    let played = false;
+    $("body").on("mouseover", async function () {
+      if (played) return;
+      try {
+        await $("#mainHomeAudio")[0].play()
+        played = true;
+      } catch (e) {
+      }
+    })
+    */
+    const video1 = document.getElementById('videoOne');
+    const video2 = document.getElementById('videoTwo');
+    const video3 = document.getElementById('videoThree');
+    /*
+    setTimeout(() => {
+      video1.play();
+      video2.play();
+      video3.play();
+    }, 0)
+    */
+
+    
+    const shopVideo1 = $('.shopDropVideo')[0];
+    const shopVideo2 = $('.shopDropVideo')[1];
+    const shopVideo3 = $('.shopDropVideo')[2];
+    const shopVideo4 = $('.shopDropVideo')[3];
+    
+    var mainAudioPlayStatus = false;
+    $(".enterButton").on("click touchstart", function(e) {
+      if(video1.paused && video1.currentTime == 0) video1.play();
+      if(video2.paused && video2.currentTime == 0) video2.play();
+      if(video3.paused && video3.currentTime == 0) video3.play();
+
+      shopVideo1.play();
+      shopVideo1.pause();
+      shopVideo1.currentTime = 0;
+
+      shopVideo2.play();
+      shopVideo2.pause();
+      shopVideo2.currentTime = 0;
+
+      shopVideo3.play();
+      shopVideo3.pause();
+      shopVideo3.currentTime = 0;
+
+      shopVideo4.play();
+      shopVideo4.pause();
+      shopVideo4.currentTime = 0;
+          
+      if(!mainAudioPlayStatus) {
+        $("#mainHomeAudio")[0].play();
+        if ($("#mute_btn").hasClass('hide')) {
+          $("#mute_btn").removeClass('hide');
+          $("#unmute_btn").addClass('hide');
+        }
+        mainAudioPlayStatus = true;
+      }
+    });
+/*
+    $("#mainHomeAudio")[0].addEventListener("canplaythrough", () => {
+      $("#mainHomeAudio")[0].play().catch(e => {
+        window.addEventListener('click touchstart', () => {
+          if(!mainAudioPlayStatus) {
+            $("#mainHomeAudio")[0].play();
+            if ($("#mute_btn").hasClass('hide')) {
+              $("#mute_btn").removeClass('hide');
+              $("#unmute_btn").addClass('hide');
+            }
+            mainAudioPlayStatus = true;
+          }
+        });
+      });
+    });
+*/
+
+    var myAudio = document.getElementById('mainHomeAudio');
+    $("#mute_btn, #unmute_btn").on("click touchstart", function(e) {
+      e.preventDefault();
+      myAudio.muted = !myAudio.muted;
+      $("#mute_btn").toggleClass('hide');
+      $("#unmute_btn").toggleClass('hide');
+    });
+
+    setTimeout(function() {
+      if(myAudio.currentTime > 0 && !myAudio.muted) {
+        $("#mute_btn").toggleClass('hide');
+        $("#unmute_btn").toggleClass('hide');
+      }
+    }, 500);
+    
+    $(window).blur(function(){
+      myAudio.muted = true;
+    });
+    $(window).focus(function(){
+      myAudio.muted = false;
+      if ($("#mute_btn").hasClass('hide')) {
+        $("#mute_btn").removeClass('hide');
+        $("#unmute_btn").addClass('hide');
+      }
+    });
+    
+  </script>
+  <script>
+    window.RS_MODULES = window.RS_MODULES || {};
+    window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+    window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+    window.RS_MODULES.defered = true;
+
+    window.RS_MODULES.waiting = window.RS_MODULES.waiting.concat(["paintbrush"]);
+    window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+    window.RS_MODULES.type = 'compiled';
+  </script>
+  <span class='image-cursor'></span>
+  <style>
+    html, body, button, a, input {
+      cursor: url('assets/paintbrush/media/cursor-tattoo-machine.png') 0 20, auto !important;
+    }
+  </style>
+  </script>
+  <script>
+    if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+  </script>
+  <link rel='stylesheet' id='rs-paintbrush-front-css' href='assets/paintbrush/revolution.addon.paintbrush.css'
+    type='text/css' media='all' />
+  <script type='text/javascript' src='assets/paintbrush/rbtools.min.js' defer async id='tp-tools-js'></script>
+  <script type='text/javascript' src='assets/paintbrush/rs6.min.js' defer async id='revmin-js'></script>
+  <script type='text/javascript' src='assets/paintbrush/revolution.addon.paintbrush.min.js' defer async
+    id='rs-paintbrush-front-js'></script>
+  <script id="rs-initialisation-scripts-home">
+    var tpj = jQuery;
+    var revapi1, revapi2;
+    if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider11"] = {
+      once: RS_MODULES.modules["revslider11"] !== undefined ? RS_MODULES.modules["revslider11"].once : undefined, init: function () {
+        window.revapi1 = window.revapi1 === undefined || window.revapi1 === null || window.revapi1.length === 0 ? document.getElementById("rev_slider_1_1") : window.revapi1;
+        if (window.revapi1 === null || window.revapi1 === undefined || window.revapi1.length == 0) { window.revapi1initTry = window.revapi1initTry === undefined ? 0 : window.revapi1initTry + 1; if (window.revapi1initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider11"].init() }); return; }
+        window.revapi1 = jQuery(window.revapi1);
+        if (window.revapi1.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_1_1"); return; }
+        revapi1.revolutionInit({
+          revapi: "revapi1",
+          DPR: "dpr",
+          sliderLayout: "fullscreen",
+          visibilityLevels: "1240,1024,778,480",
+          gridwidth: 1240,
+          gridheight: 900,
+          lazyType: "single",
+          perspective: 600,
+          perspectiveType: "global",
+          editorheight: "900,768,960,720",
+          responsiveLevels: "1240,1024,778,480",
+          progressBar: { disableProgressBar: true },
+          navigation: {
+            onHoverStop: false
+          },
+          viewPort: {
+            global: true,
+            globalDist: "-200px",
+            enable: false
+          },
+          fallbacks: {
+            allowHTML5AutoPlayOnAndroid: true
+          },
+        });
+
+        if (typeof RevSliderPaintBrush !== "undefined") RevSliderPaintBrush(tpj, revapi1);
+      }
+    } // End of RevInitScript
+
+    if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider22"] = {
+      once: RS_MODULES.modules["revslider22"] !== undefined ? RS_MODULES.modules["revslider22"].once : undefined, init: function () {
+        window.revapi2 = window.revapi2 === undefined || window.revapi2 === null || window.revapi2.length === 0 ? document.getElementById("rev_slider_2_2") : window.revapi2;
+        if (window.revapi2 === null || window.revapi2 === undefined || window.revapi2.length == 0) { window.revapi2initTry = window.revapi2initTry === undefined ? 0 : window.revapi2initTry + 1; if (window.revapi2initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider22"].init() }); return; }
+        window.revapi2 = jQuery(window.revapi2);
+        if (window.revapi2.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_2_2"); return; }
+        revapi2.revolutionInit({
+          revapi: "revapi2",
+          DPR: "dpr",
+          sliderLayout: "fullscreen",
+          visibilityLevels: "1240,1240,778,480",
+          gridwidth: "1240,1240,778,480",
+          gridheight: "900,900,960,720",
+          lazyType: "smart",
+          perspective: 600,
+          perspectiveType: "global",
+          editorheight: "900,768,960,720",
+          responsiveLevels: "1240,1240,778,480",
+          progressBar: { disableProgressBar: true },
+          navigation: {
+            onHoverStop: false
+          },
+          viewPort: {
+            global: true,
+            globalDist: "-200px",
+            enable: false
+          },
+          fallbacks: {
+            allowHTML5AutoPlayOnAndroid: true
+          },
+        });
+
+        if (typeof RevSliderPaintBrush !== "undefined") RevSliderPaintBrush(tpj, revapi2);
+      }
+    } // End of RevInitScript
+
+    if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+  </script>
+  <script id="rs-initialisation-scripts-roadmap">
+    var tpj = jQuery;
+    var revapi3, revapi4;
+    if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider61"] = {
+      once: RS_MODULES.modules["revslider61"] !== undefined ? RS_MODULES.modules["revslider61"].once : undefined, init: function () {
+        window.revapi3 = window.revapi3 === undefined || window.revapi3 === null || window.revapi3.length === 0 ? document.getElementById("rev_slider_6_1") : window.revapi3;
+        if (window.revapi3 === null || window.revapi3 === undefined || window.revapi3.length == 0) { window.revapi3initTry = window.revapi3initTry === undefined ? 0 : window.revapi3initTry + 1; if (window.revapi3initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider61"].init() }); return; }
+        window.revapi3 = jQuery(window.revapi3);
+        if (window.revapi3.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_6_1"); return; }
+        revapi3.revolutionInit({
+          revapi: "revapi3",
+          DPR: "dpr",
+          sliderLayout: "fullscreen",
+          visibilityLevels: "1240,1024,778,480",
+          gridwidth: 1240,
+          gridheight: 900,
+          lazyType: "single",
+          perspective: 600,
+          perspectiveType: "global",
+          editorheight: "900,768,960,720",
+          responsiveLevels: "1240,1024,778,480",
+          progressBar: { disableProgressBar: true },
+          navigation: {
+            onHoverStop: false
+          },
+          viewPort: {
+            global: true,
+            globalDist: "-200px",
+            enable: false
+          },
+          fallbacks: {
+            allowHTML5AutoPlayOnAndroid: true
+          },
+        });
+
+        if (typeof RevSliderPaintBrush !== "undefined") RevSliderPaintBrush(tpj, revapi3);
+      }
+    } // End of RevInitScript
+
+    if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+    if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+    RS_MODULES.modules["revslider62"] = {
+      once: RS_MODULES.modules["revslider62"] !== undefined ? RS_MODULES.modules["revslider62"].once : undefined, init: function () {
+        window.revapi4 = window.revapi4 === undefined || window.revapi4 === null || window.revapi4.length === 0 ? document.getElementById("rev_slider_6_2") : window.revapi4;
+        if (window.revapi4 === null || window.revapi4 === undefined || window.revapi4.length == 0) { window.revapi4initTry = window.revapi4initTry === undefined ? 0 : window.revapi4initTry + 1; if (window.revapi4initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider62"].init() }); return; }
+        window.revapi4 = jQuery(window.revapi4);
+        if (window.revapi4.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_6_2"); return; }
+        revapi4.revolutionInit({
+          revapi: "revapi4",
+          DPR: "dpr",
+          sliderLayout: "fullscreen",
+          visibilityLevels: "1240,1240,778,480",
+          gridwidth: "1240,1240,778,480",
+          gridheight: "900,900,960,720",
+          lazyType: "smart",
+          perspective: 600,
+          perspectiveType: "global",
+          editorheight: "900,768,960,720",
+          responsiveLevels: "1240,1240,778,480",
+          progressBar: { disableProgressBar: true },
+          navigation: {
+            onHoverStop: false
+          },
+          viewPort: {
+            global: true,
+            globalDist: "-200px",
+            enable: false
+          },
+          fallbacks: {
+            allowHTML5AutoPlayOnAndroid: true
+          },
+        });
+
+        if (typeof RevSliderPaintBrush !== "undefined") RevSliderPaintBrush(tpj, revapi4);
+      }
+    } // End of RevInitScript
+
+    if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+  </script>
+
+  <!-- ====== Paintbrush The END ===== -->
+</body>
+
+</html>
