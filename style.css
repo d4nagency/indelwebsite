@@ -1789,9 +1789,14 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 20px;
 }
 
+#shopTitle {
+  display: flex;
+  align-items: center;
+}
+
 .plusIcon {
-  width: 25px;
-  margin-left: 4px;
+  width: 30px;
+  margin-left: 10px;
   transition: all 0.5s;
 }
 
@@ -1801,7 +1806,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 480px) {
   .plusIcon {
-    width: 20px;
+    width: 24px;
   }
   #buyNowShows {
     width: 90%;
