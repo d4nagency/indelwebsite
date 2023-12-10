@@ -35,155 +35,61 @@ let disabled = false;
 $(document).ready(function () {
   //document.body.style.height = window.innerHeight + 'px';
 
-  if (navigator.appVersion.indexOf("Macintosh")!=-1) {
-    $('body').css('background','#c8c1ba');
+  if (navigator.appVersion.indexOf("Macintosh") != -1) {
+    $("body").css("background", "#c8c1ba");
   }
 
-  $(".navItem").click(function () {
+  $(".navItem").click(function (event) {
+    event.preventDefault();
+
     if (disabled === false) {
       disabled = true;
       const page = $(this).attr("id");
       let videoOne = $("#videoOne")[0];
       let videoTwo = $("#videoTwo")[0];
 
-      const updateText = () => {
-        if (page != "home") {
-          showCanvas = false;
-          $("#mainHomeText").removeClass("activeSegment");
-          $("#mainHomeText").removeClass("homeSectionContent");
-          $("#mainHomeText").addClass("inactiveSegment");
-          $(".homeText").removeClass("homeSectionContent");
-        } else if (page == "home") {
-          showCanvas = true;
-          $("#mainHomeText").addClass("homeSectionContent");
-          $("#mainHomeText").removeClass("homeSectionText");
-          $("#mainHomeText").removeClass("inactiveSegment");
-          $("#mainHomeText").addClass("activeSegment");
-          $(".homeText").addClass("homeSectionContent");
-        }
+      //if videoOne is active
+      if ($("#videoOne").hasClass("activeVideo")) {
+        updateVideosComplete(page, $("#videoOne"), $("#videoTwo"), videoOne);
+      }
 
-        if (page == "about") {
-          $("#redTitleAbout").addClass("redTitleAnimateShow");
-          $("#whiteSubText").addClass("subTextShow");
-          $("#aboutParagraph").addClass("animateParaSectionShow");
-          $("#aboutText").addClass("activeSegment");
-          $(".thirdVideo").addClass("showThirdVideo");
-          $("#aboutText").removeClass("inactiveSegment");
-          $("#redTitleAbout").removeClass("redTitleAnimate");
-          $("#whiteSubText").removeClass("subTextHide");
-          $("#aboutParagraph").removeClass("animateParaSection");
-          $(".thirdVideo").removeClass("hideThirdVideo");
-        } else if (page != "about") {
-          $("#aboutParagraph").removeClass("animateParaSectionShow");
-          $("#redTitleAbout").removeClass("redTitleAnimateShow");
-          $("#whiteSubText").removeClass("subTextShow");
-          $("#aboutText").removeClass("activeSegment");
-          $(".thirdVideo").removeClass("showThirdVideo");
-          $("#aboutParagraph").addClass("animateParaSection");
-          $("#whiteSubText").addClass("subTextHide");
-          $("#redTitleAbout").addClass("redTitleAnimate");
-          $("#aboutText").addClass("inactiveSegment");
-          $(".thirdVideo").addClass("hideThirdVideo");
-        }
+      //if videoTwo is active
+      else {
+        updateVideosComplete(page, $("#videoTwo"), $("#videoOne"), videoTwo);
+      }
+      // Page Segment Animations
+    }
+  });
 
-        if (page == "genesis") {
-          $("#genesisDrop").addClass("activeSegment");
-          $("#genesisTitle").addClass("redTitleAnimateShow");
-          $("#genesisParagraph").addClass("animateParaSectionShow2");
-          $("#genesisDrop").removeClass("inactiveSegment");
-        } else if (page != "genesis") {
-          $("#genesisParagraph").removeClass("animateParaSectionShow2");
-          $("#genesisTitle").removeClass("redTitleAnimateShow");
-          $("#genesisDrop").removeClass("activeSegment");
-          $("#genesisDrop").addClass("inactiveSegment");
-        }
+  const updateVideosComplete = (page, activeVideo, inActiveVideo, video) => {
+    if (page === "home") {
+      inActiveVideo.addClass("homepageVideo");
+    } else {
+      inActiveVideo.removeClass("homepageVideo");
+    }
 
-        if (page === "roadMap") {
-          // $(".activeVideo").addClass("roadmapWidth");
-          $("#roadMapTitle").addClass("aboutRoadMapShow");
-          $("#roadMapSegment").addClass("activeSegment");
-          $("#roadMapSegment").removeClass("inactiveSegment");
-        } else if (page !== "roadMap") {
-          $("#roadMapTitle").removeClass("aboutRoadMapShow");
-          $("#roadMapSegment").removeClass("activeSegment");
-          $("#roadMapSegment").addClass("inactiveSegment");
-          $(".headImage2, .handImage2, .chestImage2, .stomachImage2, .legImage2").removeClass("roadmapImages");
-        }
+    if (page === "buyNow") {
+      inActiveVideo.addClass("buyNowVideo");
+    } else {
+      inActiveVideo.removeClass("buyNowVideo");
+    }
 
-        if (page === "buyNow") {
-          $(".activeVideo").addClass("buyNowVideo");
-          $("#buyNowShows").addClass("imageLayersShow");
-          $("#buyNowSegment").addClass("activeSegment");
-          $("#buyNowSegment").removeClass("inactiveSegment");
-        } else if (page !== "buyNow") {
-          $(".activeVideo").removeClass("buyNowVideo");
-          $(".inactiveVideo").removeClass("buyNowVideo");
-          $("#buyNowShows").removeClass("imageLayersShow");
-          $("#buyNowSegment").removeClass("activeSegment");
-          $("#buyNowSegment").addClass("inactiveSegment");
-        }
+    if (page === "shop") {
+      inActiveVideo.addClass("shopVideo");
+    } else {
+      inActiveVideo.removeClass("shopVideo");
+    }
 
-        if (page === "shop") {
-          $(".activeVideo").addClass("shopVideo");
-          $("#shopSegment").addClass("activeSegment");
-          $("#shopSegment").removeClass("inactiveSegment");
-          $("#shopTitle").addClass("redTitleAnimateShow");
-          $("#shopParagraph").addClass("animateParaSectionShow2");
-          $("#shopDropsWrapper").addClass("shopDropsWrapperAnimateShow");
-          $("#shopBottomParagraph").addClass("animateParaSectionShow");
-          $("body .pageSection").addClass("scrollYAuto");
-        } else if (page !== "shop") {
-          $(".activeVideo").removeClass("shopVideo");
-          $(".inactiveVideo").removeClass("shopVideo");
-          $("#shopSegment").removeClass("activeSegment");
-          $("#shopSegment").addClass("inactiveSegment");
-          $("#shopTitle").removeClass("redTitleAnimateShow");
-          $("#shopParagraph").removeClass("animateParaSectionShow2");
-          $("#shopDropsWrapper").removeClass("shopDropsWrapperAnimateShow");
-          $("#shopBottomParagraph").removeClass("animateParaSectionShow");
-          $("body .pageSection").removeClass("scrollYAuto");
-        }
+    if (page === "roadMap") {
+      inActiveVideo.addClass("roadMapVideo");
+      $("#roadMapSegment").removeClass("roadMapSegmentNone");
+    } else {
+      inActiveVideo.removeClass("roadMapVideo");
+      $("#roadMapSegment").addClass("roadMapSegmentNone");
+      $("#RoadMapPageWithCanvas").removeClass("active");
+    }
 
-        $(".thirdVideo").css("opacity", 0);
-
-        if (page === "about") {
-          // set videoThree to block
-          $(".thirdVideo").css("display", "block");
-        } else {
-          // set videoThree to display none
-          $(".thirdVideo").css("display", "none");
-        }
-      };
-
-      const updateVideosComplete = (activeVideo, inActiveVideo, video) => {
-        if (page === "home") {
-          inActiveVideo.addClass("homepageVideo");
-        } else {
-          inActiveVideo.removeClass("homepageVideo");
-        }
-
-        if (page === "buyNow") {
-          inActiveVideo.addClass("buyNowVideo");
-        } else {
-          inActiveVideo.removeClass("buyNowVideo");
-        }
-
-        if (page === "shop") {
-          inActiveVideo.addClass("shopVideo");
-        } else {
-          inActiveVideo.removeClass("shopVideo");
-        }
-
-        if (page === "roadMap") {
-          inActiveVideo.addClass("roadMapVideo");
-          $("#roadMapSegment").removeClass("roadMapSegmentNone");
-        } else {
-          inActiveVideo.removeClass("roadMapVideo");
-          $("#roadMapSegment").addClass("roadMapSegmentNone");
-          $("#RoadMapPageWithCanvas").removeClass("active");
-        }
-
-        /*
+    /*
         if (page !== "roadMap" && $("#RoadMapPageWithCanvas").hasClass("active")) {
           $("#RoadMapPageWithCanvas").removeClass("active");
           const canvas = $("#RoadMapPageWithCanvas .revaddonpaintbrush");
@@ -193,90 +99,190 @@ $(document).ready(function () {
         }
         */
 
-        if (page == "roadMap" && $("#RoadMapPageWithCanvas .revaddonpaintbrush").length > 0 ) {
-          revapi3.revredraw();
-          revapi4.revredraw();
-        }
-
-        if (page !== "home" && $("#HomePageWithCanvas").hasClass("active")) {
-          $("#HomePageWithCanvas").removeClass("active");
-        }
-
-        const updateVideos = () => {
-          const newSrc = videoSrcs[page].src;
-          let activeVideo;
-          let inActiveVideo;
-          if ($("#videoOne").hasClass("activeVideo")) {
-            activeVideo = $("#videoOne");
-            inActiveVideo = $("#videoTwo");
-          } else {
-            activeVideo = $("#videoTwo");
-            inActiveVideo = $("#videoOne");
-          }
-          inActiveVideo.fadeOut(1000);
-
-          //if videoTwo is active
-
-          inActiveVideo.attr("src", newSrc);
-          inActiveVideo.attr("data-video-name", page);
-          activeVideo.fadeOut(1000);
-          if (activeVideo.hasClass("activeVideo")) {
-            activeVideo.removeClass("activeVideo");
-            activeVideo.addClass("inactiveVideo");
-          }
-          if (inActiveVideo.hasClass("inactiveVideo")) {
-            inActiveVideo.removeClass("inactiveVideo");
-            inActiveVideo.addClass("activeVideo");
-          }
-
-          inActiveVideo.fadeIn(1500);
-
-          if (page === "home") {
-            setTimeout(() => {
-              const activeVideo =
-                $(".activeVideo")[0].attributes["data-video-name"].value;
-              if (activeVideo === "home") {
-              
-                $("#HomePageWithCanvas").addClass("active");
-              }
-            }, 8000);
-          }
-          if (page === "roadMap") {
-            setTimeout(() => {
-              const activeVideo =
-                $(".activeVideo")[0].attributes["data-video-name"].value;
-              if (activeVideo === "roadMap") {
-                $("#RoadMapPageWithCanvas").addClass("active");
-              }
-            }, 6000);
-          }
-
-          disabled = false;
-
-          updateText();
-        };
-
-        if (video.currentTime < 8) {
-          updateVideos();
-        } else if (video.duration - video.currentTime > 8) {
-          updateVideos();
-        } else {
-          updateVideos();
-        }
-      };
-
-      //if videoOne is active
-      if ($("#videoOne").hasClass("activeVideo")) {
-        updateVideosComplete($("#videoOne"), $("#videoTwo"), videoOne);
-      }
-
-      //if videoTwo is active
-      else {
-        updateVideosComplete($("#videoTwo"), $("#videoOne"), videoTwo);
-      }
-      // Page Segment Animations
+    if (
+      page == "roadMap" &&
+      $("#RoadMapPageWithCanvas .revaddonpaintbrush").length > 0
+    ) {
+      revapi3.revredraw();
+      revapi4.revredraw();
     }
-  });
+
+    if (page !== "home" && $("#HomePageWithCanvas").hasClass("active")) {
+      $("#HomePageWithCanvas").removeClass("active");
+    }
+
+    if (video.currentTime < 8) {
+      updateVideos(page);
+    } else if (video.duration - video.currentTime > 8) {
+      updateVideos(page);
+    } else {
+      updateVideos(page);
+    }
+  };
+
+  const updateVideos = (page) => {
+    const newSrc = videoSrcs[page].src;
+    let activeVideo;
+    let inActiveVideo;
+    if ($("#videoOne").hasClass("activeVideo")) {
+      activeVideo = $("#videoOne");
+      inActiveVideo = $("#videoTwo");
+    } else {
+      activeVideo = $("#videoTwo");
+      inActiveVideo = $("#videoOne");
+    }
+    inActiveVideo.fadeOut(1000);
+
+    //if videoTwo is active
+
+    inActiveVideo.attr("src", newSrc);
+    inActiveVideo.attr("data-video-name", page);
+    activeVideo.fadeOut(1000);
+    if (activeVideo.hasClass("activeVideo")) {
+      activeVideo.removeClass("activeVideo");
+      activeVideo.addClass("inactiveVideo");
+    }
+    if (inActiveVideo.hasClass("inactiveVideo")) {
+      inActiveVideo.removeClass("inactiveVideo");
+      inActiveVideo.addClass("activeVideo");
+    }
+
+    inActiveVideo.fadeIn(1500);
+
+    if (page === "home") {
+      setTimeout(() => {
+        const activeVideo =
+          $(".activeVideo")[0].attributes["data-video-name"].value;
+        if (activeVideo === "home") {
+          $("#HomePageWithCanvas").addClass("active");
+        }
+      }, 8000);
+    }
+    if (page === "roadMap") {
+      setTimeout(() => {
+        const activeVideo =
+          $(".activeVideo")[0].attributes["data-video-name"].value;
+        if (activeVideo === "roadMap") {
+          $("#RoadMapPageWithCanvas").addClass("active");
+        }
+      }, 6000);
+    }
+
+    disabled = false;
+
+    updateText(page);
+  };
+
+  const updateText = (page) => {
+    if (page != "home") {
+      showCanvas = false;
+      $("#mainHomeText").removeClass("activeSegment");
+      $("#mainHomeText").removeClass("homeSectionContent");
+      $("#mainHomeText").addClass("inactiveSegment");
+      $(".homeText").removeClass("homeSectionContent");
+    } else if (page == "home") {
+      showCanvas = true;
+      $("#mainHomeText").addClass("homeSectionContent");
+      $("#mainHomeText").removeClass("homeSectionText");
+      $("#mainHomeText").removeClass("inactiveSegment");
+      $("#mainHomeText").addClass("activeSegment");
+      $(".homeText").addClass("homeSectionContent");
+    }
+
+    if (page == "about") {
+      $("#redTitleAbout").addClass("redTitleAnimateShow");
+      $("#whiteSubText").addClass("subTextShow");
+      $("#aboutParagraph").addClass("animateParaSectionShow");
+      $("#aboutText").addClass("activeSegment");
+      $(".thirdVideo").addClass("showThirdVideo");
+      $("#aboutText").removeClass("inactiveSegment");
+      $("#redTitleAbout").removeClass("redTitleAnimate");
+      $("#whiteSubText").removeClass("subTextHide");
+      $("#aboutParagraph").removeClass("animateParaSection");
+      $(".thirdVideo").removeClass("hideThirdVideo");
+    } else if (page != "about") {
+      $("#aboutParagraph").removeClass("animateParaSectionShow");
+      $("#redTitleAbout").removeClass("redTitleAnimateShow");
+      $("#whiteSubText").removeClass("subTextShow");
+      $("#aboutText").removeClass("activeSegment");
+      $(".thirdVideo").removeClass("showThirdVideo");
+      $("#aboutParagraph").addClass("animateParaSection");
+      $("#whiteSubText").addClass("subTextHide");
+      $("#redTitleAbout").addClass("redTitleAnimate");
+      $("#aboutText").addClass("inactiveSegment");
+      $(".thirdVideo").addClass("hideThirdVideo");
+    }
+
+    if (page == "genesis") {
+      $("#genesisDrop").addClass("activeSegment");
+      $("#genesisTitle").addClass("redTitleAnimateShow");
+      $("#genesisParagraph").addClass("animateParaSectionShow2");
+      $("#genesisDrop").removeClass("inactiveSegment");
+    } else if (page != "genesis") {
+      $("#genesisParagraph").removeClass("animateParaSectionShow2");
+      $("#genesisTitle").removeClass("redTitleAnimateShow");
+      $("#genesisDrop").removeClass("activeSegment");
+      $("#genesisDrop").addClass("inactiveSegment");
+    }
+
+    if (page === "roadMap") {
+      // $(".activeVideo").addClass("roadmapWidth");
+      $("#roadMapTitle").addClass("aboutRoadMapShow");
+      $("#roadMapSegment").addClass("activeSegment");
+      $("#roadMapSegment").removeClass("inactiveSegment");
+    } else if (page !== "roadMap") {
+      $("#roadMapTitle").removeClass("aboutRoadMapShow");
+      $("#roadMapSegment").removeClass("activeSegment");
+      $("#roadMapSegment").addClass("inactiveSegment");
+      $(
+        ".headImage2, .handImage2, .chestImage2, .stomachImage2, .legImage2"
+      ).removeClass("roadmapImages");
+    }
+
+    if (page === "buyNow") {
+      $(".activeVideo").addClass("buyNowVideo");
+      $("#buyNowShows").addClass("imageLayersShow");
+      $("#buyNowSegment").addClass("activeSegment");
+      $("#buyNowSegment").removeClass("inactiveSegment");
+    } else if (page !== "buyNow") {
+      $(".activeVideo").removeClass("buyNowVideo");
+      $(".inactiveVideo").removeClass("buyNowVideo");
+      $("#buyNowShows").removeClass("imageLayersShow");
+      $("#buyNowSegment").removeClass("activeSegment");
+      $("#buyNowSegment").addClass("inactiveSegment");
+    }
+
+    if (page === "shop") {
+      $(".activeVideo").addClass("shopVideo");
+      $("#shopSegment").addClass("activeSegment");
+      $("#shopSegment").removeClass("inactiveSegment");
+      $("#shopTitle").addClass("redTitleAnimateShow");
+      $("#shopParagraph").addClass("animateParaSectionShow2");
+      $("#shopDropsWrapper").addClass("shopDropsWrapperAnimateShow");
+      $("#shopBottomParagraph").addClass("animateParaSectionShow");
+      $("body .pageSection").addClass("scrollYAuto");
+    } else if (page !== "shop") {
+      $(".activeVideo").removeClass("shopVideo");
+      $(".inactiveVideo").removeClass("shopVideo");
+      $("#shopSegment").removeClass("activeSegment");
+      $("#shopSegment").addClass("inactiveSegment");
+      $("#shopTitle").removeClass("redTitleAnimateShow");
+      $("#shopParagraph").removeClass("animateParaSectionShow2");
+      $("#shopDropsWrapper").removeClass("shopDropsWrapperAnimateShow");
+      $("#shopBottomParagraph").removeClass("animateParaSectionShow");
+      $("body .pageSection").removeClass("scrollYAuto");
+    }
+
+    $(".thirdVideo").css("opacity", 0);
+
+    if (page === "about") {
+      // set videoThree to block
+      $(".thirdVideo").css("display", "block");
+    } else {
+      // set videoThree to display none
+      $(".thirdVideo").css("display", "none");
+    }
+  };
 
   var audio = $("#audio")[0];
   $(".aboutHoverEffect").mouseenter(function () {
@@ -336,7 +342,7 @@ $(document).ready(function () {
     audioTwo.pause();
     $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
   });
-  
+
   $("#home").click(function () {
     $("li").removeClass("active");
   });
@@ -360,19 +366,19 @@ $(document).ready(function () {
     }, 1000);
   });
 
-  $(".enterButton").on("click touchstart", function() {
+  $(".enterButton").on("click touchstart", function () {
     $(".enter-screen").addClass("complete");
   });
 
   $(".shopDrop").on("mouseenter", function (event) {
-    if(window.innerWidth > 768) {
-      var shopVideo = $(this).find('.shopDropVideo')[0];
+    if (window.innerWidth > 768) {
+      var shopVideo = $(this).find(".shopDropVideo")[0];
       var isPlaying =
         shopVideo.currentTime > 0 &&
         !shopVideo.paused &&
         !shopVideo.ended &&
         shopVideo.readyState > shopVideo.HAVE_CURRENT_DATA;
-      
+
       //$(this).find('.shopDropImg').addClass('shopDropImgHide');
       //$(this).find('.shopDropVideo').addClass('shopDropVideoShow');
 
@@ -383,17 +389,17 @@ $(document).ready(function () {
   });
 
   $(".shopDrop").on("mouseleave", function (event) {
-    if(window.innerWidth > 768) {
-      var shopVideo = $(this).find('.shopDropVideo')[0];
+    if (window.innerWidth > 768) {
+      var shopVideo = $(this).find(".shopDropVideo")[0];
       var isPlaying =
         shopVideo.currentTime > 0 &&
         !shopVideo.paused &&
         !shopVideo.ended &&
         shopVideo.readyState > shopVideo.HAVE_CURRENT_DATA;
-      
+
       //$(this).find('.shopDropImg').removeClass('shopDropImgHide');
       //$(this).find('.shopDropVideo').removeClass('shopDropVideoShow');
-      
+
       if (isPlaying) {
         shopVideo.pause();
         shopVideo.currentTime = 0;
@@ -402,8 +408,7 @@ $(document).ready(function () {
   });
 
   $(".shopDrop").on("touchstart", function (event) {
-    
-    var shopVideo = $(this).find('.shopDropVideo')[0];
+    var shopVideo = $(this).find(".shopDropVideo")[0];
 
     shopVideo.play();
 
@@ -430,8 +435,13 @@ $(document).ready(function () {
       !audioTwo.ended &&
       audioTwo.readyState > audioTwo.HAVE_CURRENT_DATA;
 
-    
-    if(isEventInElement(event, $("#hoverHead")[0]) || isEventInElement(event, $("#hoverHand")[0]) || isEventInElement(event, $("#hoverChest")[0]) || isEventInElement(event, $("#hoverStomach")[0]) || isEventInElement(event, $("#hoverLeg")[0])){
+    if (
+      isEventInElement(event, $("#hoverHead")[0]) ||
+      isEventInElement(event, $("#hoverHand")[0]) ||
+      isEventInElement(event, $("#hoverChest")[0]) ||
+      isEventInElement(event, $("#hoverStomach")[0]) ||
+      isEventInElement(event, $("#hoverLeg")[0])
+    ) {
       if (!isPlaying) {
         audioTwo.play();
       }
@@ -442,23 +452,23 @@ $(document).ready(function () {
     }
   });
 
-  $('.shopDrop').disableSelection();
+  $(".shopDrop").disableSelection();
 
   $(".plusIcon").on("click", function (event) {
-    $('#shopParagraphList').toggleClass('shopParagraphListShow');
-    $(".plusIcon").toggleClass('plusIconOpen');
+    $("#shopParagraphList").toggleClass("shopParagraphListShow");
+    $(".plusIcon").toggleClass("plusIconOpen");
   });
 });
 
 $.fn.extend({
-  disableSelection: function() {
-      this.each(function() {
-          this.onselectstart = function() {
-              return false;
-          };
-          this.unselectable = "on";
-          $(this).css('-moz-user-select', 'none');
-          $(this).css('-webkit-user-select', 'none');
-      });
-  }
+  disableSelection: function () {
+    this.each(function () {
+      this.onselectstart = function () {
+        return false;
+      };
+      this.unselectable = "on";
+      $(this).css("-moz-user-select", "none");
+      $(this).css("-webkit-user-select", "none");
+    });
+  },
 });
