@@ -34,6 +34,7 @@ let disabled = false;
 
 $(document).ready(function () {
   //document.body.style.height = window.innerHeight + 'px';
+  verifyRoute();
 
   if (navigator.appVersion.indexOf("Macintosh") != -1) {
     $("body").css("background", "#c8c1ba");
@@ -46,14 +47,20 @@ $(document).ready(function () {
     updatePage(page);
   });
 
-  const handleRouting = () => {
+  function verifyRoute() {
     let pagePath = window.location.pathname.replace("/", "");
     if (pagePath === "") {
       pagePath = "home";
     }
     if (!Object.keys(videoSrcs).includes(pagePath)) {
       window.location.href = "/404.html";
+      return "404";
     }
+    return pagePath;
+  }
+
+  const handleRouting = () => {
+    const pagePath = verifyRoute();
     updatePage(pagePath);
   };
   $(window).on("popstate", handleRouting);
