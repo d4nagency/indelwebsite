@@ -41,10 +41,23 @@ $(document).ready(function () {
 
   $(".navItem").click(function (event) {
     event.preventDefault();
+    const page = $(this).attr("id");
+    history.pushState({}, "", page === "home" ? "/" : page);
+    updatePage(page);
+  });
 
+  const handleRouting = () => {
+    let pagePath = window.location.pathname.replace("/", "");
+    if (pagePath === "") {
+      pagePath = "home";
+    }
+    updatePage(pagePath);
+  };
+  $(window).on("popstate", handleRouting);
+
+  const updatePage = (page) => {
     if (disabled === false) {
       disabled = true;
-      const page = $(this).attr("id");
       let videoOne = $("#videoOne")[0];
       let videoTwo = $("#videoTwo")[0];
 
@@ -59,7 +72,7 @@ $(document).ready(function () {
       }
       // Page Segment Animations
     }
-  });
+  };
 
   const updateVideosComplete = (page, activeVideo, inActiveVideo, video) => {
     if (page === "home") {
@@ -368,6 +381,7 @@ $(document).ready(function () {
 
   $(".enterButton").on("click touchstart", function () {
     $(".enter-screen").addClass("complete");
+    handleRouting();
   });
 
   $(".shopDrop").on("mouseenter", function (event) {
