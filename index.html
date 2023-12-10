@@ -95,11 +95,6 @@
     </div>
   </div>
   
-  <div class="enter-screen"> 			 
-    <div class="preloader-content">   	 					
-      <button class="enterButton">Enter</button>
-    </div>
-  </div>
   <!-- ===== Preloader ===== -->
   <audio id="mainHomeAudio" loop>
     <source src="./assets/audio/main.mp3" />
@@ -598,7 +593,7 @@
     const shopVideo4 = $('.shopDropVideo')[3];
     
     var mainAudioPlayStatus = false;
-    $(".enterButton").on("click touchstart", function(e) {
+    $("#videoOne").on("loadeddata", function(e) {
       if(video1.paused && video1.currentTime == 0) video1.play();
       if(video2.paused && video2.currentTime == 0) video2.play();
       if(video3.paused && video3.currentTime == 0) video3.play();

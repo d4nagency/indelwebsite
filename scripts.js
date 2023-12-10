@@ -386,12 +386,8 @@ $(document).ready(function () {
   $("#videoOne").on("loadeddata", function () {
     setTimeout(function () {
       $(".preloader-plus").addClass("complete");
+      handleRouting();
     }, 1000);
-  });
-
-  $(".enterButton").on("click touchstart", function () {
-    $(".enter-screen").addClass("complete");
-    handleRouting();
   });
 
   $(".shopDrop").on("mouseenter", function (event) {
