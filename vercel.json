@@ -1,6 +1,4 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "redirects": [
-    { "source": "/(.*)", "destination": "/404.html", "status": 404 }
-  ]
+  "cleanUrls": true,
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
