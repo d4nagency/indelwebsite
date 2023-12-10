@@ -9,11 +9,6 @@ let videoSrcs = {
     end: 5,
     name: "about",
   },
-  genesis: {
-    src: "./assets/videos/genesis_01.mp4",
-    end: 5,
-    name: "genesis",
-  },
   roadMap: {
     src: "./assets/videos/roadmap_01.mp4",
     end: 7,
@@ -235,19 +230,6 @@ $(document).ready(function () {
       $("#aboutText").addClass("inactiveSegment");
       $(".thirdVideo").addClass("hideThirdVideo");
     }
-
-    if (page == "genesis") {
-      $("#genesisDrop").addClass("activeSegment");
-      $("#genesisTitle").addClass("redTitleAnimateShow");
-      $("#genesisParagraph").addClass("animateParaSectionShow2");
-      $("#genesisDrop").removeClass("inactiveSegment");
-    } else if (page != "genesis") {
-      $("#genesisParagraph").removeClass("animateParaSectionShow2");
-      $("#genesisTitle").removeClass("redTitleAnimateShow");
-      $("#genesisDrop").removeClass("activeSegment");
-      $("#genesisDrop").addClass("inactiveSegment");
-    }
-
     if (page === "roadMap") {
       // $(".activeVideo").addClass("roadmapWidth");
       $("#roadMapTitle").addClass("aboutRoadMapShow");
@@ -370,7 +352,7 @@ $(document).ready(function () {
     $("li").removeClass("active");
   });
 
-  $("#home, #genesis, #buyNow, #roadMap").click(function () {
+  $("#home, #buyNow, #roadMap").click(function () {
     $(".thirdVideo").addClass("nonethirdVideo");
   });
 

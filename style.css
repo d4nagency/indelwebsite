@@ -273,16 +273,6 @@ svg {
   color: white;
 }
 
-.genesisDrop {
-  font-family: "Roombold";
-  position: absolute;
-  width: 52%;
-  font-weight: 700;
-  font-size: 21px;
-  left: 25%;
-  top: 43%;
-}
-
 .redTitle {
   font-family: "Roombold";
   font-size: 30px;
@@ -1009,13 +999,6 @@ input[type="number"]::-webkit-outer-spin-button {
     left: 2%;
     font-size: 16px;
     width: 35%;
-  }
-
-  .genesisDrop {
-    font-size: 15px;
-    top: 58%;
-    width: 90%;
-    left: 7%;
   }
 
   .wrap {
