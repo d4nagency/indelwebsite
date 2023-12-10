@@ -1,0 +1,181 @@
+#shopSegment {
+  font-family: "Montserrat";
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 12%;
+  z-index: 1;
+}
+
+.shopRedTitle {
+  font-family: "Montserrat";
+  font-size: 30px;
+  color: #781b1e;
+  margin: 8px 0px;
+  text-align: center;
+  transition: opacity 1s 1s;
+}
+
+#shopParagraph,
+#shopBottomParagraph {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+#shopParagraphList {
+  position: relative;
+  font-weight: 400;
+  padding: 0;
+  display: block;
+  transition: all 2s;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#shopParagraphList.shopParagraphListShow {
+  opacity: 1;
+  height: auto;
+}
+
+#shopParagraphList li {
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+#shopDropsWrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  margin: 3% 0;
+  opacity: 0;
+  transition: opacity 1s 3s;
+}
+
+#shopDropsWrapper.shopDropsWrapperAnimateShow {
+  opacity: 1;
+}
+
+.shopDrop {
+  width: calc(25% - 20px);
+  position: relative;
+}
+
+.shopDropImg {
+  width: 100%;
+  /*
+  max-width: 260px;
+  padding-bottom: 20px;
+  */
+  border-bottom: 1px solid #000;
+}
+
+.shopDropImgHide {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.shopDropVideo {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: none;
+  -webkit-mask-image: none;
+  border-bottom: 1px solid #000;
+  /* opacity: 0; */
+}
+
+.shopDropVideoShow {
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.shopDropTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #781b1e;
+}
+
+.shopDropPara {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .shopDropPara {
+    opacity: 0;
+  }
+
+  .shopDrop:hover .shopDropPara {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+}
+
+.shopDropPara li {
+  margin-bottom: 15px;
+  padding: 0;
+  list-style: unset;
+}
+
+#shopBottomParagraph {
+  margin: 50px 0;
+  transition: opacity 1s 4s;
+}
+
+@media only screen and (max-width: 991px) {
+  .shopDrop {
+    width: calc(50% - 20px);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .shopRedTitle {
+    font-size: 20px;
+  }
+  #shopParagraph,
+  #shopBottomParagraph {
+    font-size: 11px;
+  }
+  .shopDropTitle {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .shopDropPara {
+    font-size: 11px;
+  }
+  .shopDropPara li {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #shopSegment {
+    top: 12%;
+  }
+  .shopDrop {
+    width: 100%;
+  }
+}
+
+.shopVideo {
+  opacity: 0;
+}
+
+#shopTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
