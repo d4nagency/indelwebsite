@@ -51,6 +51,9 @@ $(document).ready(function () {
     if (pagePath === "") {
       pagePath = "home";
     }
+    if (!Object.keys(videoSrcs).includes(pagePath)) {
+      window.location.href = "/404.html";
+    }
     updatePage(pagePath);
   };
   $(window).on("popstate", handleRouting);
