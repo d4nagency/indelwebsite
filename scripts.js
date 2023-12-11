@@ -30,13 +30,6 @@ $(document).ready(function () {
     $("body").css("background", "#c8c1ba");
   }
 
-  $(".navItem").click(function (event) {
-    event.preventDefault();
-    const page = $(this).attr("id");
-    history.pushState({}, "", page === "home" ? "/" : page);
-    updatePage(page);
-  });
-
   function verifyRoute() {
     let pagePath = window.location.pathname.replace("/", "");
     if (pagePath === "") {
@@ -266,11 +259,6 @@ $(document).ready(function () {
   $(".aboutHoverEffect").mouseleave(function () {
     audio.pause();
     $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
-  });
-
-  //Navigation Bottom Line Animation
-  $("li.nav-links").click(function () {
-    $(this).addClass("active").siblings().removeClass("active");
   });
 
   var audioTwo = $("#homeAudio")[0];

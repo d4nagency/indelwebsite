@@ -101,20 +101,6 @@ video::-webkit-media-controls-start-playback-button {
   opacity: 1;
 }
 
-.header_sec {
-  padding: 0px 2% 0px 0px;
-  z-index: 2;
-  z-index: 1000;
-  position: relative;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
 ul {
   display: flex;
   column-gap: 10px;
@@ -130,10 +116,6 @@ li {
 }
 
 @media only screen and (min-width: 992px) {
-  .navbar ul li {
-    margin: 0 10px;
-  }
-
   /* ====================================== */
   .buyNowVideo {
     position: absolute !important;
@@ -846,10 +828,6 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
-.mobileNavLinks {
-  display: none;
-}
-
 .closeIcon {
   width: 30px;
   height: 30px;
@@ -1013,38 +991,6 @@ input[type="number"]::-webkit-outer-spin-button {
     font-family: "Roombold";
     font-size: 17px;
     transform: translate(0, 10%);
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .aboutNav {
-    display: flex;
-    justify-content: space-between;
-    width: 89%;
-  }
-
-  .menuIcon {
-    display: block;
-    cursor: pointer;
-  }
-
-  .mobileNavLinks {
-    position: fixed;
-    display: block;
-    height: 0%;
-    overflow: hidden;
-    left: 0;
-    top: 0;
-    background-color: #c0b7ae;
-    width: 100%;
-    transition: height 0.5s;
-  }
-
-  .mobileNavLinksShow {
-    height: 400px;
-    transition: height 0.5s;
   }
 
   .thirdVideoShow {
