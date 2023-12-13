@@ -52,7 +52,6 @@ $(document).ready(function () {
 
   // Roadmap Body hover effect
   $("#rev_slider_6_1_wrapper").on("mousemove touchmove", function (event) {
-    console.log("hover");
     const isPlaying =
       audioTwo.currentTime > 0 &&
       !audioTwo.paused &&

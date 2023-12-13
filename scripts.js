@@ -24,6 +24,7 @@ let videoSrcs = {
 
 $(document).ready(function () {
   const path = verifyRoute();
+  const mainHomeAudio = document.getElementById("mainHomeAudio");
 
   if (navigator.appVersion.indexOf("Macintosh") != -1) {
     $("body").css("background", "#c8c1ba");
@@ -52,10 +53,50 @@ $(document).ready(function () {
   // remove loader after page video is loaded
   $("#pageVideo").on("loadeddata", function () {
     setTimeout(function () {
+      const pageVideo = document.getElementById("pageVideo");
+      const video3 = document.getElementById("videoThree");
       $(".preloader-plus").addClass("complete");
+      if (pageVideo.paused && pageVideo.currentTime == 0) pageVideo.play();
+      if (video3.paused && video3.currentTime == 0) video3.play();
+      muteAudio();
     }, 1000);
   });
 
+  // Page Audio
+  function muteAudio() {
+    $("#mute_btn").addClass("hide");
+    $("#unmute_btn").removeClass("hide");
+    mainHomeAudio.muted = true;
+  }
+
+  $("#unmute_btn").on("click touchstart", function (e) {
+    e.preventDefault();
+    mainHomeAudio.muted = false;
+
+    $("#mute_btn").removeClass("hide");
+    $("#unmute_btn").addClass("hide");
+    mainHomeAudio.play();
+  });
+
+  $("#mute_btn").on("click touchstart", function (e) {
+    e.preventDefault();
+    mainHomeAudio.muted = true;
+    $("#mute_btn").addClass("hide");
+    $("#unmute_btn").removeClass("hide");
+  });
+
+  setTimeout(function () {
+    if (mainHomeAudio.currentTime > 0 && !mainHomeAudio.muted) {
+      $("#mute_btn").toggleClass("hide");
+      $("#unmute_btn").toggleClass("hide");
+    }
+  }, 500);
+
+  $(window).blur(function () {
+    mainHomeAudio.muted = true;
+  });
+
+  // Page Video + Content
   function updateVideos(page) {
     const newSrc = videoSrcs[page].src;
     let pageVideo = $("#pageVideo");
