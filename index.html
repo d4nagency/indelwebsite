@@ -375,60 +375,10 @@
   </div>
   <script src="scripts.js"></script>
   <script src="setup.js"></script>
+  <script src="audio.js"></script>
   <script src="roadmap.js"></script>
   <script src="videoLoop.js"></script>
   <!-- ====== Paintbrush -->
-  <!-- <script>
-    const video1 = document.getElementById('videoOne');
-    const video2 = document.getElementById('videoTwo');
-    const video3 = document.getElementById('videoThree');
-
-    const myAudio = document.getElementById('mainHomeAudio');
-    $("#videoOne").on("loadeddata", function(e) {
-      if(video1.paused && video1.currentTime == 0) video1.play();
-      if(video2.paused && video2.currentTime == 0) video2.play();
-      if(video3.paused && video3.currentTime == 0) video3.play();
-          
-      $("#mute_btn").addClass('hide');
-      $("#unmute_btn").removeClass('hide');
-      myAudio.muted = true;
-    });
-
-    $("#unmute_btn").on("click touchstart", function(e) {
-      e.preventDefault();
-      myAudio.muted = false;
-
-      $("#mute_btn").removeClass('hide');
-      $("#unmute_btn").addClass('hide');
-      myAudio.play();
-    });
-
-    $("#mute_btn").on("click touchstart", function(e) {
-      e.preventDefault();
-      myAudio.muted = true;
-      $("#mute_btn").addClass('hide');
-      $("#unmute_btn").removeClass('hide');
-    });
-
-    setTimeout(function() {
-      if(myAudio.currentTime > 0 && !myAudio.muted) {
-        $("#mute_btn").toggleClass('hide');
-        $("#unmute_btn").toggleClass('hide');
-      }
-    }, 500);
-    
-    $(window).blur(function(){
-      myAudio.muted = true;
-    });
-    $(window).focus(function(){
-      myAudio.muted = false;
-      if ($("#mute_btn").hasClass('hide')) {
-        $("#mute_btn").removeClass('hide');
-        $("#unmute_btn").addClass('hide');
-      }
-    });
-    
-  </script> -->
   <script>
     window.RS_MODULES = window.RS_MODULES || {};
     window.RS_MODULES.modules = window.RS_MODULES.modules || {};
