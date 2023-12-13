@@ -80,10 +80,6 @@ video::-webkit-media-controls-start-playback-button {
   z-index: -1;
 }
 
-.inactiveVideo {
-  z-index: -2;
-}
-
 .inactiveSegment {
   z-index: -2;
   transition: opacity 1.5s ease;
@@ -1126,10 +1122,6 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
   }
 
-  .inactiveVideo {
-    width: 100%;
-  }
-
   .thirdVideo {
     width: 100%;
   }
@@ -1208,10 +1200,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .activeVideo {
-    width: 100%;
-  }
-
-  .inactiveVideo {
     width: 100%;
   }
 

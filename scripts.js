@@ -21,7 +21,6 @@ let videoSrcs = {
     name: "buyNow",
   },
 };
-let disabled = false;
 
 $(document).ready(function () {
   const path = verifyRoute();
@@ -48,33 +47,21 @@ $(document).ready(function () {
   };
   $(window).on("popstate", handleRouting);
 
+  // set page video
+  updateVideos(path);
+  // remove loader after page video is loaded
   $("#pageVideo").on("loadeddata", function () {
     setTimeout(function () {
       $(".preloader-plus").addClass("complete");
-      handleRouting();
     }, 1000);
   });
 
-  const updatePage = (page) => {
-    if (disabled === false) {
-      disabled = true;
-      let pageVideo = $("#pageVideo")[0];
-      let videoTwo = $("#videoTwo")[0];
+  function updateVideos(page) {
+    const newSrc = videoSrcs[page].src;
+    let pageVideo = $("#pageVideo");
+    pageVideo.attr("src", newSrc);
+    pageVideo.attr("data-video-name", page);
 
-      //if videoOne is active
-      if ($("#pageVideo").hasClass("activeVideo")) {
-        updateVideosComplete(page, $("#videoTwo"), pageVideo);
-      }
-
-      //if videoTwo is active
-      else {
-        updateVideosComplete(page, $("#pageVideo"), videoTwo);
-      }
-      // Page Segment Animations
-    }
-  };
-
-  const updateVideosComplete = (page, pageVideo) => {
     if (page === "home") {
       pageVideo.addClass("homepageVideo");
     } else {
@@ -108,37 +95,6 @@ $(document).ready(function () {
       $("#HomePageWithCanvas").removeClass("active");
     }
 
-    updateVideos(page);
-  };
-
-  const updateVideos = (page) => {
-    const newSrc = videoSrcs[page].src;
-    let pageVideo;
-    let inActiveVideo;
-    if ($("#pageVideo").hasClass("activeVideo")) {
-      pageVideo = $("#pageVideo");
-      inActiveVideo = $("#videoTwo");
-    } else {
-      pageVideo = $("#videoTwo");
-      inActiveVideo = $("#pageVideo");
-    }
-    inActiveVideo.fadeOut(1000);
-
-    //if videoTwo is active
-    inActiveVideo.attr("src", newSrc);
-    inActiveVideo.attr("data-video-name", page);
-    pageVideo.fadeOut(1000);
-    if (pageVideo.hasClass("activeVideo")) {
-      pageVideo.removeClass("activeVideo");
-      pageVideo.addClass("inactiveVideo");
-    }
-    if (inActiveVideo.hasClass("inactiveVideo")) {
-      inActiveVideo.removeClass("inactiveVideo");
-      inActiveVideo.addClass("activeVideo");
-    }
-
-    inActiveVideo.fadeIn(1500);
-
     if (page === "home") {
       setTimeout(() => {
         const activeVideo =
@@ -158,12 +114,10 @@ $(document).ready(function () {
       }, 6000);
     }
 
-    disabled = false;
-
     updateText(page);
-  };
+  }
 
-  const updateText = (page) => {
+  function updateText(page) {
     if (page != "home") {
       $("#mainHomeText").removeClass("activeSegment");
       $("#mainHomeText").removeClass("homeSectionContent");
@@ -221,7 +175,6 @@ $(document).ready(function () {
       $("#buyNowSegment").removeClass("inactiveSegment");
     } else if (page !== "buyNow") {
       $(".activeVideo").removeClass("buyNowVideo");
-      $(".inactiveVideo").removeClass("buyNowVideo");
       $("#buyNowShows").removeClass("imageLayersShow");
       $("#buyNowSegment").removeClass("activeSegment");
       $("#buyNowSegment").addClass("inactiveSegment");
@@ -236,7 +189,7 @@ $(document).ready(function () {
       // set videoThree to display none
       $(".thirdVideo").css("display", "none");
     }
-  };
+  }
 
   $("#home").click(function () {
     $("li").removeClass("active");
