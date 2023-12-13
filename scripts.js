@@ -74,7 +74,7 @@ $(document).ready(function () {
     }
   };
 
-  const updateVideosComplete = (page, inActiveVideo, video) => {
+  const updateVideosComplete = (page, inActiveVideo) => {
     if (page === "home") {
       inActiveVideo.addClass("homepageVideo");
     } else {
@@ -108,13 +108,7 @@ $(document).ready(function () {
       $("#HomePageWithCanvas").removeClass("active");
     }
 
-    if (video.currentTime < 8) {
-      updateVideos(page);
-    } else if (video.duration - video.currentTime > 8) {
-      updateVideos(page);
-    } else {
-      updateVideos(page);
-    }
+    updateVideos(page);
   };
 
   const updateVideos = (page) => {
