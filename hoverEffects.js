@@ -7,14 +7,14 @@ $(document).ready(function () {
       audio.play();
       audio.loop = true;
     }
-    $("#videoThree").css({ opacity: "1", transition: "opacity 0.5s" });
+    $("#aboutEffectVideo").css({ opacity: "1", transition: "opacity 0.5s" });
   });
 
   $(".aboutHoverEffect").mouseleave(function () {
     if (!isAudioMuted()) {
       audio.pause();
     }
-    $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
+    $("#aboutEffectVideo").css({ opacity: "0", transition: "opacity 0.5s" });
   });
 
   // Indelible logo hover effect with audio
