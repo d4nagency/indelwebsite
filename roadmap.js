@@ -1,8 +1,8 @@
-//RoadMap Body Animations
-
+// RoadMap Body Animations
+"use strict";
 function isEventInElement(event, element) {
-  var rect = element.getBoundingClientRect();
-  var x = event.clientX;
+  const rect = element.getBoundingClientRect();
+  const x = event.clientX;
   if (x < rect.left || x >= rect.right) return false;
   var y = event.clientY;
   if (y < rect.top || y >= rect.bottom) return false;
@@ -11,13 +11,7 @@ function isEventInElement(event, element) {
 
 $(document).ready(function () {
   $(document).mousemove(function (event) {
-    let activeVideo = null;
-    if ($("#pageVideo").hasClass("activeVideo")) {
-      activeVideo = $("#pageVideo");
-    } else {
-      activeVideo = $("#videoTwo");
-    }
-    const activePageName = activeVideo.attr("data-video-name");
+    const activePageName = $("#pageVideo").attr("data-video-name");
 
     if (activePageName === "roadMap") {
       if (isEventInElement(event, $("#hoverHead")[0])) {
