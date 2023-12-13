@@ -50,11 +50,6 @@ $(document).ready(function () {
     // $("#videoThree").css({"opacity":"1", "transition":"opacity 0.5s"})
   });
 
-  $(".hoverDivMain").mouseleave(function () {
-    audioTwo.pause();
-    $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
-  });
-
   // Roadmap Body hover effect
   $("#rev_slider_6_1_wrapper").on("mousemove touchmove", function (event) {
     console.log("hover");
