@@ -74,24 +74,24 @@ $(document).ready(function () {
     }
   };
 
-  const updateVideosComplete = (page, inActiveVideo) => {
+  const updateVideosComplete = (page, pageVideo) => {
     if (page === "home") {
-      inActiveVideo.addClass("homepageVideo");
+      pageVideo.addClass("homepageVideo");
     } else {
-      inActiveVideo.removeClass("homepageVideo");
+      pageVideo.removeClass("homepageVideo");
     }
 
     if (page === "buyNow") {
-      inActiveVideo.addClass("buyNowVideo");
+      pageVideo.addClass("buyNowVideo");
     } else {
-      inActiveVideo.removeClass("buyNowVideo");
+      pageVideo.removeClass("buyNowVideo");
     }
 
     if (page === "roadMap") {
-      inActiveVideo.addClass("roadMapVideo");
+      pageVideo.addClass("roadMapVideo");
       $("#roadMapSegment").removeClass("roadMapSegmentNone");
     } else {
-      inActiveVideo.removeClass("roadMapVideo");
+      pageVideo.removeClass("roadMapVideo");
       $("#roadMapSegment").addClass("roadMapSegmentNone");
       $("#RoadMapPageWithCanvas").removeClass("active");
     }
@@ -113,13 +113,13 @@ $(document).ready(function () {
 
   const updateVideos = (page) => {
     const newSrc = videoSrcs[page].src;
-    let activeVideo;
+    let pageVideo;
     let inActiveVideo;
     if ($("#pageVideo").hasClass("activeVideo")) {
-      activeVideo = $("#pageVideo");
+      pageVideo = $("#pageVideo");
       inActiveVideo = $("#videoTwo");
     } else {
-      activeVideo = $("#videoTwo");
+      pageVideo = $("#videoTwo");
       inActiveVideo = $("#pageVideo");
     }
     inActiveVideo.fadeOut(1000);
@@ -127,10 +127,10 @@ $(document).ready(function () {
     //if videoTwo is active
     inActiveVideo.attr("src", newSrc);
     inActiveVideo.attr("data-video-name", page);
-    activeVideo.fadeOut(1000);
-    if (activeVideo.hasClass("activeVideo")) {
-      activeVideo.removeClass("activeVideo");
-      activeVideo.addClass("inactiveVideo");
+    pageVideo.fadeOut(1000);
+    if (pageVideo.hasClass("activeVideo")) {
+      pageVideo.removeClass("activeVideo");
+      pageVideo.addClass("inactiveVideo");
     }
     if (inActiveVideo.hasClass("inactiveVideo")) {
       inActiveVideo.removeClass("inactiveVideo");
