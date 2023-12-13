@@ -1,14 +1,19 @@
 "use strict";
 $(document).ready(function () {
+  const isAudioMuted = () => $("#mute_btn").hasClass("hide");
   const audio = $("#audio")[0];
   $(".aboutHoverEffect").mouseenter(function () {
-    audio.play();
-    audio.loop = true;
+    if (!isAudioMuted()) {
+      audio.play();
+      audio.loop = true;
+    }
     $("#videoThree").css({ opacity: "1", transition: "opacity 0.5s" });
   });
 
   $(".aboutHoverEffect").mouseleave(function () {
-    audio.pause();
+    if (!isAudioMuted()) {
+      audio.pause();
+    }
     $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
   });
 
@@ -39,15 +44,14 @@ $(document).ready(function () {
       !audioTwo.ended &&
       audioTwo.readyState > audioTwo.HAVE_CURRENT_DATA;
     if (relY > top && relY < bottom && relX > left && relX < right) {
-      if (!isPlaying) {
+      if (!isPlaying && !isAudioMuted()) {
         audioTwo.play();
       }
     } else {
-      if (isPlaying) {
+      if (isPlaying && !isAudioMuted()) {
         audioTwo.pause();
       }
     }
-    // $("#videoThree").css({"opacity":"1", "transition":"opacity 0.5s"})
   });
 
   // Roadmap Body hover effect
@@ -65,11 +69,11 @@ $(document).ready(function () {
       isEventInElement(event, $("#hoverStomach")[0]) ||
       isEventInElement(event, $("#hoverLeg")[0])
     ) {
-      if (!isPlaying) {
+      if (!isPlaying && !isAudioMuted()) {
         audioTwo.play();
       }
     } else {
-      if (isPlaying) {
+      if (isPlaying && !isAudioMuted()) {
         audioTwo.pause();
       }
     }
