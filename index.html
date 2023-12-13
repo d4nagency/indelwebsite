@@ -1,5 +1,4 @@
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,11 +12,9 @@
   <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <!-- ====== Page 1 - Paintbrush -->
-
   <script type="text/javascript">
     document.documentElement.className = 'js';
   </script>
-
   <script>
     var et_site_url = 'https://indelible.live';
     var et_post_id = '97';
@@ -77,21 +74,14 @@
   <link rel="stylesheet" id="et-core-unified-cached-inline-styles"
     href="assets/paintbrush/et-core-unified-16704058431038.min.css" onerror="et_core_page_resource_fallback(this, true)"
     onload="et_core_page_resource_fallback(this)" />
-
   <!-- ====== Page 1 - Paintbrush | The END -->
   <link rel="stylesheet" href="./style.css" />
 </head>
-
 <body>
   <!-- ===== Preloader ===== -->
-  
   <div class="preloader-plus"> 			 
     <div class="preloader-content">   	 					
       <img class="preloader-custom-img" src="assets/images/loader-2.png"/>
-        <!-- <div class="prog-bar-wrapper middle">
-          <div class="prog-bar-bg"></div>
-          <div class="prog-bar" ></div>
-        </div>  -->
       <div class="preloader-2">
         <span class="line line-1"></span>
         <span class="line line-2"></span>
@@ -122,7 +112,6 @@
     <article>
       <div class="et_pb_module et_pb_fullwidth_code et_pb_fullwidth_code_0">
         <div class="et_pb_code_inner">
-
           <!-- START Slider 1 REVOLUTION SLIDER 6.5.24 -->
           <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery"
             style="visibility:hidden;background:transparent;padding:0;">
@@ -140,7 +129,6 @@
             </script>
           </rs-module-wrap>
           <!-- END REVOLUTION SLIDER -->
-
         </div>
       </div> <!-- .et_pb_fullwidth_code -->
       <div class="et_pb_module et_pb_fullwidth_code et_pb_fullwidth_code_1">
@@ -223,19 +211,14 @@
     </article>
   </div>
   <!-- ====== Page Roadmap - Paintbrush | The END -->
-
-  <video class="thirdVideo hideThirdVideo" autoplay muted loop id="videoThree" playsinline>
+  <video class="aboutEffectVideo hideAboutEffectVideo" autoplay muted loop id="aboutEffectVideo" playsinline>
     <source id="videoSource" src="./assets/videos/about_02.mp4" type="video/mp4" />
   </video>
-  <!-- =============================== VideoOne/ VideoTwo ================================= -->
-  <div id="divVideo">
-      <video data-video-name="home" class="activeVideo homepageVideo theVideo" autoplay muted loop id="videoOne" playsinline>
-        <source id="videoSource" src="./assets/videos/landing_page_01.mp4" type="video/mp4" />
+  <!-- =============================== Page Video ================================= -->
+  <section id="videoSection">
+      <video data-video-name="home" class="activeVideo theVideo" autoplay muted loop id="pageVideo" playsinline src="./assets/videos/landing_page_01.mp4">
       </video>
-      <video data-video-name="secondVideo" class="inactiveVideo theVideo" autoplay muted loop id="videoTwo" playsinline>
-        <source id="videoSourceTwo" src="" type="video/mp4" />
-      </video>
-  </div>
+  </section>
   <!-- =================================================================== -->
   <div class="pageSection">
     <div class="videoSegments">
@@ -311,7 +294,6 @@
           </div>
         </div>
         <!-- ===================================== RoadMap Desktop ==================================== -->
-
         <div id="roadMapTitle" class="aboutRoadMap">
           <p>PURCHASE A TATTOOED NFT AND UNLOCK MEMBERSHIP REWARDS</p>
         </div>
@@ -381,126 +363,16 @@
             <h2 class="dropTitle">AZUKI X INDELIBLE</h2>
             <p class="dropText">INDELIBLE CREATED A DERIVATIVE COLLECTION IN COLLABORATION WITH LICENSED AZUKI HOLDERS. OUR 1000 ANIMATED AZUKI NTFS WERE TATTOOED BY: BJ BETTS, MATT “SKINNY”, AND MIKE RUBENDALL.</p>
             <h2 class="coming-soon">DROP COMING SOON</h2>
-            <!--
-            <form>
-              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">
-                -
-              </div>
-              <div class="eth">
-                <label>0.345 ETH</label>
-                <input type="number" id="number" value="0" disabled />
-              </div>
-
-              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">
-                +
-              </div>
-            </form>
-            <div class="buttonsWrap">
-              <div class="wrapConnect">
-                <button class="connectButton">CONNECT WALLET</button>
-              </div>
-              <div class="wrapPay">
-                <button class="payButton">PAY WITH CREDIT CARD</button>
-              </div>
-            </div>
-            -->
           </div>
         </div>
       </div>
     </div>
   </div>
   <script src="scripts.js"></script>
+  <script src="hoverEffects.js"></script>
   <script src="roadmap.js"></script>
   <script src="videoLoop.js"></script>
-  <script src="buyNowInputs.js"></script>
-
   <!-- ====== Paintbrush -->
-
-  <script>
-    /*
-    let played = false;
-    $("body").on("mouseover", async function () {
-      if (played) return;
-      try {
-        await $("#mainHomeAudio")[0].play()
-        played = true;
-      } catch (e) {
-      }
-    })
-    */
-    const video1 = document.getElementById('videoOne');
-    const video2 = document.getElementById('videoTwo');
-    const video3 = document.getElementById('videoThree');
-    /*
-    setTimeout(() => {
-      video1.play();
-      video2.play();
-      video3.play();
-    }, 0)
-    */
-
-    const myAudio = document.getElementById('mainHomeAudio');
-    $("#videoOne").on("loadeddata", function(e) {
-      if(video1.paused && video1.currentTime == 0) video1.play();
-      if(video2.paused && video2.currentTime == 0) video2.play();
-      if(video3.paused && video3.currentTime == 0) video3.play();
-          
-      $("#mute_btn").addClass('hide');
-      $("#unmute_btn").removeClass('hide');
-      myAudio.muted = true;
-    });
-/*
-    $("#mainHomeAudio")[0].addEventListener("canplaythrough", () => {
-      $("#mainHomeAudio")[0].play().catch(e => {
-        window.addEventListener('click touchstart', () => {
-          if(!mainAudioPlayStatus) {
-            $("#mainHomeAudio")[0].play();
-            if ($("#mute_btn").hasClass('hide')) {
-              $("#mute_btn").removeClass('hide');
-              $("#unmute_btn").addClass('hide');
-            }
-            mainAudioPlayStatus = true;
-          }
-        });
-      });
-    });
-*/
-
-    $("#unmute_btn").on("click touchstart", function(e) {
-      e.preventDefault();
-      myAudio.muted = false;
-
-      $("#mute_btn").removeClass('hide');
-      $("#unmute_btn").addClass('hide');
-      myAudio.play();
-    });
-
-    $("#mute_btn").on("click touchstart", function(e) {
-      e.preventDefault();
-      myAudio.muted = true;
-      $("#mute_btn").addClass('hide');
-      $("#unmute_btn").removeClass('hide');
-    });
-
-    setTimeout(function() {
-      if(myAudio.currentTime > 0 && !myAudio.muted) {
-        $("#mute_btn").toggleClass('hide');
-        $("#unmute_btn").toggleClass('hide');
-      }
-    }, 500);
-    
-    $(window).blur(function(){
-      myAudio.muted = true;
-    });
-    $(window).focus(function(){
-      myAudio.muted = false;
-      if ($("#mute_btn").hasClass('hide')) {
-        $("#mute_btn").removeClass('hide');
-        $("#unmute_btn").addClass('hide');
-      }
-    });
-    
-  </script>
   <script>
     window.RS_MODULES = window.RS_MODULES || {};
     window.RS_MODULES.modules = window.RS_MODULES.modules || {};
@@ -689,7 +561,6 @@
 
     if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
   </script>
-
   <!-- ====== Paintbrush The END ===== -->
 </body>
 

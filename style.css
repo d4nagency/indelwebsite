@@ -42,16 +42,12 @@ body {
   transition: opacity 1s;
 }
 
-.showCanvas {
-  display: block;
-}
-
 .hide,
 .hideCanvas {
   display: none;
 }
 
-#divVideo {
+#videoSection {
   position: relative;
 }
 
@@ -82,10 +78,6 @@ video::-webkit-media-controls-start-playback-button {
 
 .activeVideo {
   z-index: -1;
-}
-
-.inactiveVideo {
-  z-index: -2;
 }
 
 .inactiveSegment {
@@ -222,10 +214,6 @@ a {
 svg {
   opacity: 0;
   position: absolute;
-}
-
-.divVideo {
-  position: relative;
 }
 
 .home {
@@ -713,7 +701,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* ===================================================================================== */
 
-.thirdVideo {
+.aboutEffectVideo {
   display: none;
   position: absolute;
   z-index: 0;
@@ -734,11 +722,11 @@ input[type="number"]::-webkit-outer-spin-button {
   );
 }
 
-.showThirdVideo {
+.showAboutEffectVideo {
   display: block;
 }
 
-.hideThirdVideo {
+.hideAboutEffectVideo {
   display: none;
 }
 .roadMapSegmentNone {
@@ -993,7 +981,7 @@ input[type="number"]::-webkit-outer-spin-button {
     transform: translate(0, 10%);
   }
 
-  .thirdVideoShow {
+  .aboutEffectVideoShow {
     opacity: 1 !important;
     transition: opacity 1s;
   }
@@ -1134,11 +1122,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
   }
 
-  .inactiveVideo {
-    width: 100%;
-  }
-
-  .thirdVideo {
+  .aboutEffectVideo {
     width: 100%;
   }
 
@@ -1188,7 +1172,7 @@ input[type="number"]::-webkit-outer-spin-button {
     );
   }
 
-  .thirdVideo {
+  .aboutEffectVideo {
     width: none;
     height: 40vh;
     transform: translate(-50%, 50%);
@@ -1219,11 +1203,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
   }
 
-  .inactiveVideo {
-    width: 100%;
-  }
-
-  .thirdVideo {
+  .aboutEffectVideo {
     width: 100%;
   }
 
@@ -1280,15 +1260,7 @@ input[type="number"]::-webkit-outer-spin-button {
   /* width: 100%; */
 }
 
-.hoverDivMain {
-  position: absolute;
-  width: 75%;
-  height: 50%;
-  background-color: transparent;
-  z-index: 10;
-}
-
-.nonethirdVideo {
+.noneAboutEffectVideo {
   display: none !important;
 }
 

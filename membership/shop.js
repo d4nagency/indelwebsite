@@ -3,7 +3,7 @@ $(document).ready(function () {
   const shopVideo2 = $(".shopDropVideo")[1];
   const shopVideo3 = $(".shopDropVideo")[2];
   const shopVideo4 = $(".shopDropVideo")[3];
-  $("#videoOne").on("loadeddata", function (e) {
+  $("#pageVideo").on("loadeddata", function (e) {
     shopVideo1.play();
     shopVideo1.pause();
     shopVideo1.currentTime = 0;
