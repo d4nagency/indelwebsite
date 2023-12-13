@@ -47,7 +47,7 @@ body {
   display: none;
 }
 
-#divVideo {
+#videoSection {
   position: relative;
 }
 
@@ -218,10 +218,6 @@ a {
 svg {
   opacity: 0;
   position: absolute;
-}
-
-.divVideo {
-  position: relative;
 }
 
 .home {
