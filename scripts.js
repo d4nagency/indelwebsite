@@ -71,11 +71,17 @@ $(document).ready(function () {
 
   $("#unmute_btn").on("click touchstart", function (e) {
     e.preventDefault();
-    mainHomeAudio.muted = false;
 
-    $("#mute_btn").removeClass("hide");
-    $("#unmute_btn").addClass("hide");
-    mainHomeAudio.play();
+    mainHomeAudio
+      .play()
+      .then(() => {
+        $("#mute_btn").removeClass("hide");
+        $("#unmute_btn").addClass("hide");
+      })
+      .catch((error) => {
+        console.error("Playback failed:", error);
+      });
+    mainHomeAudio.muted = false;
   });
 
   $("#mute_btn").on("click touchstart", function (e) {
