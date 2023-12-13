@@ -6,11 +6,13 @@ $(document).ready(function () {
     audio.loop = true;
     $("#videoThree").css({ opacity: "1", transition: "opacity 0.5s" });
   });
+
   $(".aboutHoverEffect").mouseleave(function () {
     audio.pause();
     $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
   });
 
+  // Indelible logo hover effect with audio
   const audioTwo = $("#homeAudio")[0];
   audioTwo.volume = 0.6;
   $("#rev_slider_1_1_wrapper").on("mousemove touchmove", function (event) {
@@ -18,7 +20,6 @@ $(document).ready(function () {
     let relY = event.pageY;
     let height = $(this).height();
     let width = $(this).width();
-    // var relBoxCoords = "(" + relX + "," + relY + ")";
     let artWidth,
       artHeight = 400;
     if (width > 1000) {
@@ -46,11 +47,17 @@ $(document).ready(function () {
         audioTwo.pause();
       }
     }
-
     // $("#videoThree").css({"opacity":"1", "transition":"opacity 0.5s"})
   });
 
+  $(".hoverDivMain").mouseleave(function () {
+    audioTwo.pause();
+    $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
+  });
+
+  // Roadmap Body hover effect
   $("#rev_slider_6_1_wrapper").on("mousemove touchmove", function (event) {
+    console.log("hover");
     const isPlaying =
       audioTwo.currentTime > 0 &&
       !audioTwo.paused &&
