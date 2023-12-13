@@ -1,11 +1,11 @@
 $(document).ready(function () {
-  const video1 = document.getElementById("videoOne");
+  const pageVideo = document.getElementById("pageVideo");
   const video2 = document.getElementById("videoTwo");
   const video3 = document.getElementById("videoThree");
   const mainHomeAudio = document.getElementById("mainHomeAudio");
 
-  $("#videoOne").on("loadeddata", function (e) {
-    if (video1.paused && video1.currentTime == 0) video1.play();
+  $("#pageVideo #videoTwo #videoThree").on("loadeddata", function (e) {
+    if (pageVideo.paused && pageVideo.currentTime == 0) pageVideo.play();
     if (video2.paused && video2.currentTime == 0) video2.play();
     if (video3.paused && video3.currentTime == 0) video3.play();
 

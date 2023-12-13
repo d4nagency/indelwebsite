@@ -1,7 +1,6 @@
 //RoadMap Body Animations
 
 function isEventInElement(event, element) {
-
   var rect = element.getBoundingClientRect();
   var x = event.clientX;
   if (x < rect.left || x >= rect.right) return false;
@@ -13,29 +12,31 @@ function isEventInElement(event, element) {
 $(document).ready(function () {
   $(document).mousemove(function (event) {
     let activeVideo = null;
-    if ($("#videoOne").hasClass("activeVideo")) {
-      activeVideo = $("#videoOne");
+    if ($("#pageVideo").hasClass("activeVideo")) {
+      activeVideo = $("#pageVideo");
     } else {
       activeVideo = $("#videoTwo");
     }
     const activePageName = activeVideo.attr("data-video-name");
 
     if (activePageName === "roadMap") {
-    
       if (isEventInElement(event, $("#hoverHead")[0])) {
         $(".redTitleMonitization").addClass("roadMapTitleOne");
         $(".animateMonitazation").addClass("roadMapSubTextOne");
         // $(".headImage2").addClass("roadmapImages");
         $(".headLine").addClass("roadMapTitleOne");
         $(".mobileTattoodetails").addClass("detailsBottomHeightTwo");
-        $(".handMobile, .chestMobile, .stomachMobile, .legMobile").addClass("raodmapSegmentNoneTwo");
+        $(".handMobile, .chestMobile, .stomachMobile, .legMobile").addClass(
+          "raodmapSegmentNoneTwo"
+        );
       } else {
         $(".redTitleMonitization").removeClass("roadMapTitleOne ");
         $(".animateMonitazation").removeClass("roadMapSubTextOne");
         $(".headLine").removeClass("roadMapTitleOne");
         $(".mobileTattoodetails").removeClass("detailsBottomHeightTwo");
-        $(".handMobile, .chestMobile, .stomachMobile, .legMobile").removeClass("raodmapSegmentNoneTwo");
-
+        $(".handMobile, .chestMobile, .stomachMobile, .legMobile").removeClass(
+          "raodmapSegmentNoneTwo"
+        );
       }
       if (isEventInElement(event, $("#hoverHand")[0])) {
         $(".redTitleNeedleDropText").addClass("roadMapTitleOne");
@@ -43,13 +44,17 @@ $(document).ready(function () {
         // $(".handImage2").addClass("roadmapImages");
         $(".handLine").addClass("roadMapTitleOne");
         $(".mobileTattoodetails").addClass("detailsBottomHeightThird");
-        $(".headerMobile, .chestMobile, .stomachMobile, .legMobile").addClass("raodmapSegmentNoneThird");
+        $(".headerMobile, .chestMobile, .stomachMobile, .legMobile").addClass(
+          "raodmapSegmentNoneThird"
+        );
       } else {
         $(".redTitleNeedleDropText").removeClass("roadMapTitleOne");
         $(".animateNeedlepara").removeClass("roadMapSubTextOne");
         $(".handLine").removeClass("roadMapTitleOne");
         $(".mobileTattoodetails").removeClass("detailsBottomHeightThird");
-        $(".headerMobile, .chestMobile, .stomachMobile, .legMobile").removeClass("raodmapSegmentNoneThird");
+        $(
+          ".headerMobile, .chestMobile, .stomachMobile, .legMobile"
+        ).removeClass("raodmapSegmentNoneThird");
       }
       if (isEventInElement(event, $("#hoverChest")[0])) {
         $(".chestLine").addClass("roadMapTitleOne");
@@ -57,13 +62,17 @@ $(document).ready(function () {
         $(".redTitleMission").addClass("roadMapTitleOne");
         $(".animateMissionValues").addClass("roadMapSubTextOne");
         $(".mobileTattoodetails").addClass("detailsBottomHeightFourth");
-        $(".headerMobile, .handMobile, .stomachMobile, .legMobile").addClass("raodmapSegmentNoneFourth");
+        $(".headerMobile, .handMobile, .stomachMobile, .legMobile").addClass(
+          "raodmapSegmentNoneFourth"
+        );
       } else {
         $(".chestLine").removeClass("roadMapTitleOne");
         $(".redTitleMission").removeClass("roadMapTitleOne");
         $(".animateMissionValues").removeClass("roadMapSubTextOne");
         $(".mobileTattoodetails").removeClass("detailsBottomHeightFourth");
-        $(".headerMobile, .handMobile, .stomachMobile, .legMobile").removeClass("raodmapSegmentNoneFourth");
+        $(".headerMobile, .handMobile, .stomachMobile, .legMobile").removeClass(
+          "raodmapSegmentNoneFourth"
+        );
       }
       if (isEventInElement(event, $("#hoverStomach")[0])) {
         $(".stomachLine").addClass("roadMapTitleOne");
@@ -71,13 +80,17 @@ $(document).ready(function () {
         $(".redTitlePartnership").addClass("roadMapTitleOne");
         $(".animateParaPartnership").addClass("roadMapSubTextOne");
         $(".mobileTattoodetails").addClass("detailsBottomHeightFifth");
-        $(".handMobile, .chestMobile, .headerMobile, .legMobile").addClass("raodmapSegmentNoneFifth");
+        $(".handMobile, .chestMobile, .headerMobile, .legMobile").addClass(
+          "raodmapSegmentNoneFifth"
+        );
       } else {
         $(".stomachLine").removeClass("roadMapTitleOne");
         $(".redTitlePartnership").removeClass("roadMapTitleOne");
         $(".animateParaPartnership").removeClass("roadMapSubTextOne");
         $(".mobileTattoodetails").removeClass("detailsBottomHeightFifth");
-        $(".handMobile, .chestMobile, .headerMobile, .legMobile").removeClass("raodmapSegmentNoneFifth");
+        $(".handMobile, .chestMobile, .headerMobile, .legMobile").removeClass(
+          "raodmapSegmentNoneFifth"
+        );
       }
       if (isEventInElement(event, $("#hoverLeg")[0])) {
         $(".legLine").addClass("roadMapTitleOne");
@@ -85,13 +98,17 @@ $(document).ready(function () {
         $(".redTitleTeamComunity").addClass("roadMapTitleOne");
         $(".animateParateamcomunity").addClass("roadMapSubTextOne");
         $(".mobileTattoodetails").addClass("legWidth");
-        $(".handMobile, .chestMobile, .headerMobile, .stomachMobile").addClass("raodmapSegmentNoneSixth")
+        $(".handMobile, .chestMobile, .headerMobile, .stomachMobile").addClass(
+          "raodmapSegmentNoneSixth"
+        );
       } else {
         $(".legLine").removeClass("roadMapTitleOne");
         $(".redTitleTeamComunity").removeClass("roadMapTitleOne");
         $(".animateParateamcomunity").removeClass("roadMapSubTextOne");
         $(".mobileTattoodetails").removeClass("legWidth");
-        $(".handMobile, .chestMobile, .headerMobile, .stomachMobile").removeClass("raodmapSegmentNoneSixth")
+        $(
+          ".handMobile, .chestMobile, .headerMobile, .stomachMobile"
+        ).removeClass("raodmapSegmentNoneSixth");
       }
     }
   });

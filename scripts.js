@@ -1,3 +1,4 @@
+"use strict";
 let videoSrcs = {
   home: {
     src: "./assets/videos/landing_page_01.mp4",
@@ -23,8 +24,7 @@ let videoSrcs = {
 let disabled = false;
 
 $(document).ready(function () {
-  //document.body.style.height = window.innerHeight + 'px';
-  verifyRoute();
+  const path = verifyRoute();
 
   if (navigator.appVersion.indexOf("Macintosh") != -1) {
     $("body").css("background", "#c8c1ba");
@@ -48,26 +48,33 @@ $(document).ready(function () {
   };
   $(window).on("popstate", handleRouting);
 
+  $("#pageVideo").on("loadeddata", function () {
+    setTimeout(function () {
+      $(".preloader-plus").addClass("complete");
+      handleRouting();
+    }, 1000);
+  });
+
   const updatePage = (page) => {
     if (disabled === false) {
       disabled = true;
-      let videoOne = $("#videoOne")[0];
+      let pageVideo = $("#pageVideo")[0];
       let videoTwo = $("#videoTwo")[0];
 
       //if videoOne is active
-      if ($("#videoOne").hasClass("activeVideo")) {
-        updateVideosComplete(page, $("#videoOne"), $("#videoTwo"), videoOne);
+      if ($("#pageVideo").hasClass("activeVideo")) {
+        updateVideosComplete(page, $("#videoTwo"), pageVideo);
       }
 
       //if videoTwo is active
       else {
-        updateVideosComplete(page, $("#videoTwo"), $("#videoOne"), videoTwo);
+        updateVideosComplete(page, $("#pageVideo"), videoTwo);
       }
       // Page Segment Animations
     }
   };
 
-  const updateVideosComplete = (page, activeVideo, inActiveVideo, video) => {
+  const updateVideosComplete = (page, inActiveVideo, video) => {
     if (page === "home") {
       inActiveVideo.addClass("homepageVideo");
     } else {
@@ -88,16 +95,6 @@ $(document).ready(function () {
       $("#roadMapSegment").addClass("roadMapSegmentNone");
       $("#RoadMapPageWithCanvas").removeClass("active");
     }
-
-    /*
-        if (page !== "roadMap" && $("#RoadMapPageWithCanvas").hasClass("active")) {
-          $("#RoadMapPageWithCanvas").removeClass("active");
-          const canvas = $("#RoadMapPageWithCanvas .revaddonpaintbrush");
-          for (let i = 0; i < canvas.length; i++) {
-            canvas[i].width += 0;
-          }
-        }
-        */
 
     if (
       page == "roadMap" &&
@@ -124,17 +121,16 @@ $(document).ready(function () {
     const newSrc = videoSrcs[page].src;
     let activeVideo;
     let inActiveVideo;
-    if ($("#videoOne").hasClass("activeVideo")) {
-      activeVideo = $("#videoOne");
+    if ($("#pageVideo").hasClass("activeVideo")) {
+      activeVideo = $("#pageVideo");
       inActiveVideo = $("#videoTwo");
     } else {
       activeVideo = $("#videoTwo");
-      inActiveVideo = $("#videoOne");
+      inActiveVideo = $("#pageVideo");
     }
     inActiveVideo.fadeOut(1000);
 
     //if videoTwo is active
-
     inActiveVideo.attr("src", newSrc);
     inActiveVideo.attr("data-video-name", page);
     activeVideo.fadeOut(1000);
@@ -175,13 +171,11 @@ $(document).ready(function () {
 
   const updateText = (page) => {
     if (page != "home") {
-      showCanvas = false;
       $("#mainHomeText").removeClass("activeSegment");
       $("#mainHomeText").removeClass("homeSectionContent");
       $("#mainHomeText").addClass("inactiveSegment");
       $(".homeText").removeClass("homeSectionContent");
     } else if (page == "home") {
-      showCanvas = true;
       $("#mainHomeText").addClass("homeSectionContent");
       $("#mainHomeText").removeClass("homeSectionText");
       $("#mainHomeText").removeClass("inactiveSegment");
@@ -250,60 +244,6 @@ $(document).ready(function () {
     }
   };
 
-  var audio = $("#audio")[0];
-  $(".aboutHoverEffect").mouseenter(function () {
-    audio.play();
-    audio.loop = true;
-    $("#videoThree").css({ opacity: "1", transition: "opacity 0.5s" });
-  });
-  $(".aboutHoverEffect").mouseleave(function () {
-    audio.pause();
-    $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
-  });
-
-  var audioTwo = $("#homeAudio")[0];
-  audioTwo.volume = 0.6;
-  $("#rev_slider_1_1_wrapper").on("mousemove touchmove", function (event) {
-    let relX = event.pageX;
-    let relY = event.pageY;
-    let height = $(this).height();
-    let width = $(this).width();
-    // var relBoxCoords = "(" + relX + "," + relY + ")";
-    let artWidth,
-      artHeight = 400;
-    if (width > 1000) {
-      artWidth = 990;
-    } else {
-      artWidth = width * 0.8;
-    }
-
-    let top = (height - artHeight) / 2;
-    let bottom = height - top;
-    let left = (width - artWidth) / 2;
-    let right = width - left;
-
-    var isPlaying =
-      audioTwo.currentTime > 0 &&
-      !audioTwo.paused &&
-      !audioTwo.ended &&
-      audioTwo.readyState > audioTwo.HAVE_CURRENT_DATA;
-    if (relY > top && relY < bottom && relX > left && relX < right) {
-      if (!isPlaying) {
-        audioTwo.play();
-      }
-    } else {
-      if (isPlaying) {
-        audioTwo.pause();
-      }
-    }
-
-    // $("#videoThree").css({"opacity":"1", "transition":"opacity 0.5s"})
-  });
-  $(".hoverDivMain").mouseleave(function () {
-    audioTwo.pause();
-    $("#videoThree").css({ opacity: "0", transition: "opacity 0.5s" });
-  });
-
   $("#home").click(function () {
     $("li").removeClass("active");
   });
@@ -314,42 +254,6 @@ $(document).ready(function () {
 
   $(".about").click(function () {
     $(".thirdVideo").removeClass("nonethirdVideo");
-  });
-
-  $(".prog-bar").addClass("loadingBar");
-  // setTimeout(function () {
-  //   $(".preloader-plus").addClass("complete");
-  // }, 1000);
-
-  $("#videoOne").on("loadeddata", function () {
-    setTimeout(function () {
-      $(".preloader-plus").addClass("complete");
-      handleRouting();
-    }, 1000);
-  });
-
-  $("#rev_slider_6_1_wrapper").on("mousemove touchmove", function (event) {
-    var isPlaying =
-      audioTwo.currentTime > 0 &&
-      !audioTwo.paused &&
-      !audioTwo.ended &&
-      audioTwo.readyState > audioTwo.HAVE_CURRENT_DATA;
-
-    if (
-      isEventInElement(event, $("#hoverHead")[0]) ||
-      isEventInElement(event, $("#hoverHand")[0]) ||
-      isEventInElement(event, $("#hoverChest")[0]) ||
-      isEventInElement(event, $("#hoverStomach")[0]) ||
-      isEventInElement(event, $("#hoverLeg")[0])
-    ) {
-      if (!isPlaying) {
-        audioTwo.play();
-      }
-    } else {
-      if (isPlaying) {
-        audioTwo.pause();
-      }
-    }
   });
 
   $(".plusIcon").on("click", function (event) {

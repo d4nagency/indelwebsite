@@ -5,7 +5,7 @@ $("#videoThree").bind("timeupdate", function () {
   }
 });
 
-$("#videoOne").bind("timeupdate", function () {
+$("#pageVideo").bind("timeupdate", function () {
   if (Math.trunc(this.currentTime) === Math.trunc(this.duration - 9)) {
     this.currentTime = 9; // change time index here
   }
