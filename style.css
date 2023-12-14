@@ -285,6 +285,7 @@ svg {
   top: 25%;
   right: 2%;
   color: white;
+  z-index: 60;
 }
 
 .missionValueLine {
