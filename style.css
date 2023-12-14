@@ -276,7 +276,7 @@ svg {
   position: absolute;
   top: 25%;
   right: 2%;
-  color: var(--stone-950);
+  color: var(--stone-50);
   z-index: 60;
 }
 
@@ -824,8 +824,8 @@ svg {
   .aboutRoadMap {
     top: 8%;
     left: 20px;
+    right: 20px;
     font-size: 1.15rem;
-    width: 35%;
   }
 
   .wrap {
