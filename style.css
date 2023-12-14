@@ -649,6 +649,19 @@ input[type="number"]::-webkit-outer-spin-button {
   z-index: 1;
 }
 
+.redacted-header {
+  width: 6rem;
+}
+
+.redacted-header,
+.animateMissionValues.redacted-body {
+  position: relative;
+  color: transparent;
+  background: #000;
+  height: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
 @media only screen and (max-width: 768px) {
   #hoverHead {
     height: 8vh;
