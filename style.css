@@ -550,12 +550,12 @@ svg {
   }
 
   #hoverLeg {
-    height: 12vh;
+    height: 18vh;
     position: fixed;
     left: 51%;
     transform: translate(0%, 0);
-    width: 8vh;
-    top: 64%;
+    width: 10vh;
+    top: 65%;
     z-index: 1;
   }
 }
