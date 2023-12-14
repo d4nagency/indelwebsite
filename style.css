@@ -3,6 +3,22 @@
   src: url(./assets/fonts/RoomBold.ttf);
 }
 
+:root {
+  --stone-950: #0c0a09;
+  --stone-900: #1c1917;
+  --stone-800: #292524;
+  --stone-700: #44403c;
+  --stone-600: #57534e;
+  --stone-500: #78716c;
+  --stone-400: #a8a29e;
+  --stone-300: #d6d3d1;
+  --stone-200: #e7e5e4;
+  --stone-100: #f5f5f4;
+  --stone-50: #fafaf9;
+  --background-color: #c1b8b1;
+  --red-highlight: #781b1e;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,10 +26,8 @@ body {
   /* cursor: url(./assets/images/cursor-tattoo-machine.png), auto !important; */
   font-family: "Bebas Neue";
   position: relative;
-  background-color: #c1b8b1;
-  /* background-color: #c1b9b3; */
-  /* background-image: url(./assets/images/poster1.png); */
-  background-repeat: no-repeat;
+  background-color: var(--background-color);
+  color: var(--stone-950);
 }
 
 #canvas {
@@ -152,7 +166,7 @@ li.active::after {
 a {
   text-decoration: none;
   font-size: 30px;
-  color: #605750;
+  color: var(--stone-700);
   font-weight: 500;
 }
 
@@ -173,7 +187,7 @@ a {
   font-size: 20px;
   font-weight: 400;
   transform: translate(-37%, 0);
-  color: white;
+  color: var(--stone-100);
   bottom: 29%;
   opacity: 0;
 }
@@ -186,29 +200,6 @@ a {
   position: absolute;
   z-index: 2;
   transform: translate(-37%, 0);
-}
-
-.mintButton {
-  width: 300px;
-  height: 80px;
-  font-size: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  color: #781b1e;
-  background-color: #b2aa9f;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  outline: none;
-}
-
-.mintButton:hover {
-  background-color: #8e8780;
-  box-shadow: 0px 15px 20px rgba(96, 87, 80, 1);
-  color: #781b1e;
-  transform: translateY(-7px);
 }
 
 svg {
@@ -236,17 +227,17 @@ svg {
   font-family: "Roombold";
   font-weight: 600;
   font-size: 30px;
-  color: #781b1e;
+  color: var(--red-highlight);
 }
 
 .subText {
-  color: white;
+  color: var(--stone-100);
 }
 
 .redTitle {
   font-family: "Roombold";
   font-size: 30px;
-  color: #781b1e;
+  color: var(--red-highlight);
   margin: 5px 0px;
 }
 
@@ -280,11 +271,12 @@ svg {
 .aboutRoadMap {
   font-family: "Roombold";
   font-weight: 700;
-  font-size: 21px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
   position: absolute;
   top: 25%;
   right: 2%;
-  color: white;
+  color: var(--stone-50);
   z-index: 60;
 }
 
@@ -320,152 +312,6 @@ svg {
 
 .teamAndCommunityLine {
   padding-top: 50px;
-}
-
-.buttonsWrap {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
-
-.wrapConnect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.connectButton {
-  width: 200px;
-  height: 80px;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  color: #781b1e;
-  background: #b2aa9f;
-  border: 1px solid #837b70;
-  box-shadow: 0px 2px 0 #837b70, 2px 4px 6px #605750;
-  border: none;
-  border-radius: 15px;
-  transition: all 150ms linear;
-  outline: none;
-  font-family: "Roombold";
-}
-
-.connectButton:hover {
-  background-color: #8e8780;
-  color: #781b1e;
-  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
-  transition: all 250ms linear;
-  transform: translateY(-7px);
-}
-
-.wrapPay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.payButton {
-  width: 200px;
-  height: 80px;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  color: #781b1e;
-  background: #b2aa9f;
-  border: 1px solid #837b70;
-  box-shadow: 0px 2px 0 #837b70, 2px 4px 6px #605750;
-  border: none;
-  border-radius: 15px;
-  transition: all 150ms linear;
-  outline: none;
-  font-family: "Roombold";
-}
-
-.payButton:hover {
-  background-color: #8e8780;
-  color: #781b1e;
-  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
-  transition: all 250ms linear;
-  transform: translateY(-7px);
-}
-
-.eth {
-  font-family: "Roombold";
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  font-size: 16px;
-  color: #781b1e;
-  width: 100px;
-  margin: 0px 20px;
-}
-
-form {
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  margin-right: 20px;
-}
-
-.value-button {
-  font-family: "Roombold";
-  display: inline-block;
-  font-size: 90px;
-  font-weight: 700;
-  color: #cac1b8;
-  text-shadow: 1px 1px #605750;
-  margin: 0px;
-  width: 25%;
-  height: 125px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 11px 0;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-form #decrease {
-  margin-right: -4px;
-  border-radius: 8px 0 0 8px;
-}
-
-form #increase {
-  margin-left: -4px;
-  border-radius: 0 8px 8px 0;
-}
-
-form #input-wrap {
-  margin: 0px;
-  padding: 0px;
-}
-
-input#number {
-  color: #781b1e;
-  font-size: 26px;
-  font-weight: 600;
-  text-align: center;
-  border: none;
-  border-top: 3px solid #c0b7ae;
-  border-bottom: 3px solid #c0b7ae;
-  border-left: 6px solid #c0b7ae;
-  border-right: 6px solid #c0b7ae;
-  border-radius: 5px;
-  margin: 0px;
-  height: 85px;
-  background-color: #cac1b8;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 .imageLayers {
@@ -521,7 +367,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #hoverHead {
-  height: 8vh;
+  height: 9vh;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
@@ -665,12 +511,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 768px) {
   #hoverHead {
-    height: 8vh;
+    height: 9vh;
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0);
     width: 15vh;
-    top: 27%;
+    top: calc(50% - 50vw);
     z-index: 1;
   }
 
@@ -704,12 +550,12 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   #hoverLeg {
-    height: 12vh;
+    height: 18vh;
     position: fixed;
     left: 51%;
     transform: translate(0%, 0);
-    width: 8vh;
-    top: 64%;
+    width: 10vh;
+    top: 65%;
     z-index: 1;
   }
 }
@@ -977,9 +823,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .aboutRoadMap {
     top: 8%;
-    left: 2%;
-    font-size: 16px;
-    width: 35%;
+    left: 20px;
+    right: 20px;
+    font-size: 1.15rem;
   }
 
   .wrap {
@@ -1037,7 +883,7 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 0px;
     background-color: rgba(178, 170, 159, 0.8);
     transform: translate(-50%, 0);
-    z-index: 2;
+    z-index: 150;
     bottom: 0%;
     transition: height 1s;
     overflow: hidden;
@@ -1465,12 +1311,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .mute-icon-wrapper {
   position: fixed;
   bottom: 60px;
-  left: 30px;
+  left: 20px;
   z-index: 30;
 }
 
 .mute-icon-wrapper svg {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .mute-icon-wrapper {
+    bottom: auto;
+    left: 20px;
+    top: 20px;
+  }
 }
 
 /*
