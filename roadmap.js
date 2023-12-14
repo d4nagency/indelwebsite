@@ -107,7 +107,7 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("touchstart", (event) => {
+  $(document).on("touchstart touchmove", (event) => {
     const activePageName = $("#pageVideo").attr("data-video-name");
 
     if (activePageName === "roadMap") {
