@@ -271,7 +271,8 @@ svg {
 .aboutRoadMap {
   font-family: "Roombold";
   font-weight: 700;
-  font-size: 21px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
   position: absolute;
   top: 25%;
   right: 2%;
@@ -822,8 +823,8 @@ svg {
 
   .aboutRoadMap {
     top: 8%;
-    left: 5%;
-    font-size: 16px;
+    left: 20px;
+    font-size: 1.15rem;
     width: 35%;
   }
 
@@ -882,7 +883,7 @@ svg {
     height: 0px;
     background-color: rgba(178, 170, 159, 0.8);
     transform: translate(-50%, 0);
-    z-index: 2;
+    z-index: 150;
     bottom: 0%;
     transition: height 1s;
     overflow: hidden;
