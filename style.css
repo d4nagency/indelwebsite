@@ -1,6 +1,17 @@
 @font-face {
-  font-family: "Roombold";
-  src: url(./assets/fonts/RoomBold.ttf);
+  font-family: "Room-Black";
+  font-weight: 800;
+  font-style: normal;
+  src: url("./assets/fonts/Room-Black.woff2") format("woff2"),
+    url("./assets/fonts/Room-Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Room";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./assets/fonts/Room.woff2") format("woff2"),
+    url("./assets/fonts/Room.woff") format("woff");
 }
 
 :root {
@@ -24,7 +35,7 @@ body {
   padding: 0;
   overflow: hidden;
   /* cursor: url(./assets/images/cursor-tattoo-machine.png), auto !important; */
-  font-family: "Bebas Neue";
+  font-family: "Room", sans-serif;
   position: relative;
   background-color: var(--background-color);
   color: var(--stone-950);
@@ -183,9 +194,8 @@ a {
 
 .homeText {
   position: absolute;
-  font-family: "Roombold";
+  font-family: "Room-Black", sans-serif;
   font-size: 20px;
-  font-weight: 400;
   transform: translate(-37%, 0);
   color: var(--stone-100);
   bottom: 29%;
@@ -218,14 +228,19 @@ svg {
   bottom: 8%;
   left: 17%;
   width: 35%;
-  font-family: "Roombold";
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.aboutpageText .subText {
+  font-family: "Room-Black", sans-serif;
+}
+
+#aboutParagraph {
+  margin-top: 1rem;
 }
 
 .redText {
-  font-family: "Roombold";
-  font-weight: 600;
+  font-family: "Room-Black", sans-serif;
   font-size: 30px;
   color: var(--red-highlight);
 }
@@ -235,7 +250,7 @@ svg {
 }
 
 .redTitle {
-  font-family: "Roombold";
+  font-family: "Room-Black", sans-serif;
   font-size: 30px;
   color: var(--red-highlight);
   margin: 5px 0px;
@@ -269,8 +284,7 @@ svg {
 }
 
 .aboutRoadMap {
-  font-family: "Roombold";
-  font-weight: 700;
+  font-family: "Room-Black", sans-serif;
   font-size: 1.25rem;
   text-transform: uppercase;
   position: absolute;
@@ -285,10 +299,9 @@ svg {
 }
 
 .partnership {
-  font-family: "Roombold";
+  font-family: "Room-Black", sans-serif;
   display: flex;
   width: 55%;
-  font-weight: 700;
   font-size: 16px;
   position: absolute;
   top: 56%;
@@ -300,10 +313,9 @@ svg {
 }
 
 .teamAndCommunity {
-  font-family: "Roombold";
+  font-family: "Room-Black", sans-serif;
   display: flex;
   width: 45%;
-  font-weight: 700;
   font-size: 16px;
   position: absolute;
   right: 6%;
@@ -356,14 +368,15 @@ svg {
 
 .textMonitization {
   position: fixed;
-  font-family: "Roombold";
-  font-size: 17px;
   left: 26.2%;
   transform: translate(-50%, 0);
   width: 30%;
   top: 12%;
-  text-align: end;
   z-index: 33;
+}
+
+.textMonitization .redTitle {
+  text-align: end;
 }
 
 #hoverHead {
@@ -397,7 +410,7 @@ svg {
 
 .needleDropText {
   position: fixed;
-  font-family: "Roombold";
+  font-family: "Room-Black", sans-serif;
   font-size: 17px;
   left: 26.2%;
   transform: translate(-75%, 0);
@@ -418,7 +431,7 @@ svg {
 
 .missionValueText {
   position: fixed;
-  font-family: "Roombold";
+  font-family: "Room-Black", sans-serif;
   font-size: 17px;
   right: -5.8%;
   transform: translate(-50%, 0);
@@ -448,8 +461,6 @@ svg {
 
 .partnershipText {
   width: 33%;
-  font-family: "Roombold";
-  font-size: 18px;
   position: fixed;
   transform: translate(31%, 0);
   top: 59%;
@@ -477,11 +488,9 @@ svg {
 
 .teamAndCommunityText {
   width: 32%;
-  font-family: "Roombold";
-  font-size: 17px;
   position: fixed;
   transform: translate(31%, 0);
-  top: 79%;
+  bottom: 8px;
   z-index: 33;
 }
 
@@ -789,7 +798,6 @@ svg {
     position: absolute;
     left: 7%;
     width: 50%;
-    font-family: "Roombold";
     font-size: 15px;
   }
 
@@ -837,7 +845,6 @@ svg {
     position: absolute;
     left: 7%;
     width: 80%;
-    font-family: "Roombold";
     font-size: 17px;
     transform: translate(0, 10%);
   }
@@ -1074,7 +1081,7 @@ svg {
   }
 
   #aboutParagraph {
-    font-size: 15px;
+    font-size: 1rem;
   }
 }
 
@@ -1219,44 +1226,17 @@ svg {
   opacity: 1;
   transform: translate(0, 0) scale(1);
 }
-.preloader-plus .prog-bar-wrapper {
-  /* middle: 0;
-  padding-middle: 0; */
-  width: 100%;
-}
-
-.preloader-plus .prog-bar-bg {
-  height: 5px;
-  background-color: #919191;
-}
-.preloader-plus .prog-bar-bg {
-  position: absolute;
-  width: 100%;
-  height: 5px;
-}
-.preloader-plus .prog-bar {
-  width: 0;
-  height: 5px;
-  background-color: #781b1e;
-  transition: all 10ms linear;
-}
-
-.loadingBar {
-  transition-duration: 1s !important;
-  width: 100% !important;
-}
-
 /* Loading */
 .preloader-2 {
   margin: 1rem auto;
 }
 
-.preloader-2 div {
+.preloader-text {
   color: #fff;
   margin: 5px 0;
   text-transform: uppercase;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
 }
 
