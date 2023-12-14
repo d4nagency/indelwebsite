@@ -890,7 +890,7 @@ svg {
     height: 0px;
     background-color: rgba(178, 170, 159, 0.8);
     transform: translate(-50%, 0);
-    z-index: 150;
+    z-index: 100;
     bottom: 0%;
     transition: height 1s;
     overflow: hidden;
@@ -899,30 +899,30 @@ svg {
   .detailsBottomHeight {
     height: auto;
     transition: height 1s;
-    z-index: 40;
+    z-index: 110;
   }
 
   .detailsBottomHeightTwo {
     height: auto;
     transition: height 1s;
-    z-index: 40;
+    z-index: 110;
   }
   .detailsBottomHeightThird {
     height: auto;
     transition: height 1s;
-    z-index: 40;
+    z-index: 110;
   }
 
   .detailsBottomHeightFourth {
     height: auto;
     transition: height 1s;
-    z-index: 40;
+    z-index: 110;
   }
 
   .detailsBottomHeightFifth {
     height: auto;
     transition: height 1s;
-    z-index: 40;
+    z-index: 110;
   }
 
   .legWidth {
