@@ -199,6 +199,7 @@ a {
   transform: translate(-37%, 0);
   color: var(--stone-100);
   bottom: 29%;
+  text-transform: uppercase;
   opacity: 0;
 }
 
