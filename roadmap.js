@@ -10,7 +10,7 @@ function isEventInElement(event, element) {
 }
 
 $(document).ready(function () {
-  $(document).on("mousemove touchstart", function (event) {
+  $(document).on("mousemove touch", function (event) {
     const activePageName = $("#pageVideo").attr("data-video-name");
 
     if (activePageName === "roadMap") {
