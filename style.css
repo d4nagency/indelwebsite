@@ -196,11 +196,18 @@ a {
   position: absolute;
   font-family: "Room-Black", sans-serif;
   font-size: 20px;
-  transform: translate(-37%, 0);
   color: var(--stone-100);
+  left: 42%;
   bottom: 29%;
   text-transform: uppercase;
   opacity: 0;
+}
+
+@media (min-width: 2540px) {
+  .homeText {
+    left: 50%;
+    bottom: 22%;
+  }
 }
 
 .wrap {
@@ -282,17 +289,6 @@ svg {
 
 .lineImg {
   transform: rotate(44deg);
-}
-
-.aboutRoadMap {
-  font-family: "Room-Black", sans-serif;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  position: absolute;
-  top: 25%;
-  right: 2%;
-  color: var(--stone-50);
-  z-index: 60;
 }
 
 .missionValueLine {
@@ -660,11 +656,6 @@ svg {
   transition: opacity 1s;
 }
 
-.aboutRoadMap {
-  opacity: 0;
-  transition: opacity 1s;
-}
-
 .aboutRoadMapShow {
   opacity: 1;
   transition: opacity 1s;
@@ -828,13 +819,6 @@ svg {
       transparent 100%
     ) !important;
     overflow: hidden;
-  }
-
-  .aboutRoadMap {
-    top: 8%;
-    left: 20px;
-    right: 20px;
-    font-size: 1.5rem;
   }
 
   .wrap {
@@ -1438,4 +1422,14 @@ svg {
   #buyNowShows {
     width: 90%;
   }
+}
+
+/* Center Roadmap Revolution Slider Wrapper */
+#rev_slider_6_1_wrapper,
+#rev_slider_6_2_wrapper {
+  max-width: 1240px; /* Max-width based on your requirement */
+  margin: 0 auto; /* Center the wrapper */
+  aspect-ratio: 16 / 9; /* Maintains the 16:9 aspect ratio */
+  left: 0 !important;
+  right: 0 !important;
 }
