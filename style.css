@@ -101,9 +101,9 @@ video::-webkit-media-controls-start-playback-button {
   -webkit-appearance: none;
 }
 
-.activeVideo {
+/* .activeVideo {
   z-index: -1;
-}
+} */
 
 .inactiveSegment {
   z-index: -2;
