@@ -1433,17 +1433,3 @@ svg {
   left: 0 !important;
   right: 0 !important;
 }
-
-@media (prefers-reduced-data: reduce) {
-  #HomePageWithCanvas {
-    display: none !important;
-  }
-
-  #RoadMapPageWithCanvas {
-    display: none !important;
-  }
-
-  #videoSection {
-    display: none !important;
-  }
-}
