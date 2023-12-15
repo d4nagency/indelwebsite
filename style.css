@@ -1433,3 +1433,13 @@ svg {
   left: 0 !important;
   right: 0 !important;
 }
+
+@media (prefers-reduced-data: reduce) {
+  #HomePageWithCanvas {
+    display: none;
+  }
+
+  #RoadMapPageWithCanvas {
+    display: none;
+  }
+}
