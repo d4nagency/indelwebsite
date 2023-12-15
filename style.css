@@ -852,8 +852,11 @@ svg {
   }
 
   .homeText {
+    font-size: 1rem;
     width: 90%;
-    transform: translate(-50%, 90%);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 29%;
     text-align: center;
   }
 
