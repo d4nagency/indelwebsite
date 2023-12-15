@@ -1433,3 +1433,38 @@ svg {
   left: 0 !important;
   right: 0 !important;
 }
+
+.alert-notice {
+  position: fixed;
+  right: 60px;
+  top: 20px;
+  z-index: 30;
+}
+
+.alert-notice__checkbox {
+  display: none;
+}
+
+.alert-notice__icon-checked {
+  opacity: 1;
+  fill: var(--red-highlight);
+}
+
+.alert-notice__icon-unchecked {
+  opacity: 1;
+  fill: var(--stone-700);
+}
+
+.alert-notice__note {
+  color: var(--red-highlight);
+  position: fixed;
+  font-weight: 700;
+  display: none;
+  top: 60px;
+  right: 0;
+  width: 12rem;
+}
+
+.alert-notice__checkbox:checked ~ .alert-notice__note {
+  display: block;
+}

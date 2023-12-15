@@ -77,6 +77,17 @@ $(document).ready(function () {
     }, 1000);
   });
 
+  $(".alert-notice").on("click", (e) => {
+    const alertCheckbox = document.getElementById("alert-notice__checkbox");
+    if (alertCheckbox.checked) {
+      $(".alert-notice__icon-checked").removeClass("hide");
+      $(".alert-notice__icon-unchecked").addClass("hide");
+    } else {
+      $(".alert-notice__icon-checked").addClass("hide");
+      $(".alert-notice__icon-unchecked").removeClass("hide");
+    }
+  });
+
   // Page Audio
   function muteAudio() {
     $("#mute_btn").addClass("hide");
