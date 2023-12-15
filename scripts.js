@@ -32,14 +32,23 @@ $(document).ready(function () {
 
   function verifyRoute() {
     let pagePath = window.location.pathname.replace("/", "");
-    if (pagePath === "") {
-      pagePath = "home";
+    switch (pagePath) {
+      case "":
+        pagePath = "home";
+        return pagePath;
+      case "about":
+        return pagePath;
+      case "roadMap":
+        return pagePath;
+      case "buyNow":
+        return pagePath;
+      case "social":
+        window.location.href = "./social.html";
+        return pagePath;
+      default:
+        window.location.href = "/404.html";
+        return "404";
     }
-    if (!Object.keys(videoSrcs).includes(pagePath)) {
-      window.location.href = "/404.html";
-      return "404";
-    }
-    return pagePath;
   }
 
   const handleRouting = () => {
