@@ -1427,9 +1427,9 @@ svg {
 /* Center Roadmap Revolution Slider Wrapper */
 #rev_slider_6_1_wrapper,
 #rev_slider_6_2_wrapper {
-  max-width: 1240px; /* Max-width based on your requirement */
-  margin: 0 auto; /* Center the wrapper */
-  aspect-ratio: 16 / 9; /* Maintains the 16:9 aspect ratio */
+  max-width: 1180px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
   left: 0 !important;
   right: 0 !important;
 }
