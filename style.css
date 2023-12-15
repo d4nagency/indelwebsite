@@ -1442,4 +1442,8 @@ svg {
   #RoadMapPageWithCanvas {
     display: none !important;
   }
+
+  video {
+    z-index: 9999;
+  }
 }
