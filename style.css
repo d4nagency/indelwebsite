@@ -1443,7 +1443,7 @@ svg {
     display: none !important;
   }
 
-  video {
-    z-index: 9999;
+  #videoSection {
+    display: none !important;
   }
 }
