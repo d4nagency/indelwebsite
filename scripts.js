@@ -69,6 +69,20 @@ $(document).ready(function () {
     mainHomeAudio.muted = true;
   }
 
+  function resizeRevSlider() {
+    var windowWidth = $(window).width();
+    var windowHeight = (windowWidth / 16) * 9;
+    // revapi3 and revapi4 were declared in inline scripts in index.html
+    revapi3.revredraw({ gridwidth: windowWidth, gridheight: windowHeight });
+    revapi4.revredraw({ gridwidth: windowWidth, gridheight: windowHeight });
+  }
+
+  // Event listener for window resize
+  window.addEventListener("resize", resizeRevSlider);
+
+  // set initial size
+  setTimeout(resizeRevSlider, 500);
+
   $("#unmute_btn").on("click touchstart", function (e) {
     e.preventDefault();
 
