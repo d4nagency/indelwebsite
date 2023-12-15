@@ -196,11 +196,18 @@ a {
   position: absolute;
   font-family: "Room-Black", sans-serif;
   font-size: 20px;
-  transform: translate(-37%, 0);
   color: var(--stone-100);
+  left: 42%;
   bottom: 29%;
   text-transform: uppercase;
   opacity: 0;
+}
+
+@media (min-width: 2540px) {
+  .homeText {
+    left: 50%;
+    bottom: 22%;
+  }
 }
 
 .wrap {
