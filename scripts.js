@@ -32,6 +32,15 @@ $(document).ready(function () {
 
   function verifyRoute() {
     let pagePath = window.location.pathname.replace("/", "");
+    const hostname = window.location.hostname;
+    const parts = hostname.split(".");
+    const subdomain = parts[0];
+
+    if (subdomain === "link") {
+      window.location.href = "./social.html";
+      return pagePath;
+    }
+
     switch (pagePath) {
       case "":
         pagePath = "home";
@@ -41,9 +50,6 @@ $(document).ready(function () {
       case "roadMap":
         return pagePath;
       case "buyNow":
-        return pagePath;
-      case "social":
-        window.location.href = "./social.html";
         return pagePath;
       default:
         window.location.href = "/404.html";
