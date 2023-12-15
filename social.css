@@ -33,10 +33,6 @@ a {
   position: relative;
 }
 
-.twitter-tweet {
-  color: var(--stone-400);
-}
-
 .social-logo {
   position: absolute;
   top: 0;
