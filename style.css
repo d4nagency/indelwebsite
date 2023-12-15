@@ -284,17 +284,6 @@ svg {
   transform: rotate(44deg);
 }
 
-.aboutRoadMap {
-  font-family: "Room-Black", sans-serif;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  position: absolute;
-  top: 25%;
-  right: 2%;
-  color: var(--stone-50);
-  z-index: 60;
-}
-
 .missionValueLine {
   padding-top: 40px;
 }
@@ -660,11 +649,6 @@ svg {
   transition: opacity 1s;
 }
 
-.aboutRoadMap {
-  opacity: 0;
-  transition: opacity 1s;
-}
-
 .aboutRoadMapShow {
   opacity: 1;
   transition: opacity 1s;
@@ -828,13 +812,6 @@ svg {
       transparent 100%
     ) !important;
     overflow: hidden;
-  }
-
-  .aboutRoadMap {
-    top: 8%;
-    left: 20px;
-    right: 20px;
-    font-size: 1.5rem;
   }
 
   .wrap {
