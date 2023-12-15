@@ -1,0 +1,78 @@
+/* Socials */
+@import "normalize.css";
+
+:root {
+  --stone-950: #0c0a09;
+  --stone-900: #1c1917;
+  --stone-800: #292524;
+  --stone-700: #44403c;
+  --stone-600: #57534e;
+  --stone-500: #78716c;
+  --stone-400: #a8a29e;
+  --stone-300: #d6d3d1;
+  --stone-200: #e7e5e4;
+  --stone-100: #f5f5f4;
+  --stone-50: #fafaf9;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+#social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--stone-950);
+  height: 100vh;
+  position: relative;
+}
+
+.twitter-tweet {
+  color: var(--stone-400);
+}
+
+.social-logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.social-logo img {
+  width: 200px;
+  height: 109px;
+  aspect-ratio: 646 / 352;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.social-icons svg {
+  fill: var(--stone-400);
+}
+
+@media (max-width: 768px) {
+  .social-icons {
+    flex-direction: row;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
