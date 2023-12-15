@@ -1436,10 +1436,10 @@ svg {
 
 @media (prefers-reduced-data: reduce) {
   #HomePageWithCanvas {
-    display: none;
+    display: none !important;
   }
 
   #RoadMapPageWithCanvas {
-    display: none;
+    display: none !important;
   }
 }
